@@ -389,6 +389,7 @@ def main():
                         
                 send_telegram(mess)
                 send_channel(mess)
+    send_telegram('Поиск завершен')
 #         # print('send')            
 #         print(mess)         
     
