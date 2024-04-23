@@ -133,262 +133,41 @@ def main():
                 bolshe = blv + b
                 menshe = mlv + m
                 print(bolshe, menshe)
-                id_ev = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['id_ev']
-#             # with codecs.open('spisok.txt','r' ,'utf-8') as file:
-
-#             #     for item in file.readlines():
-#             #         spis =[]
-#             #         line = item.strip()
-#             #         # print(line)
-#             #         id = line.split('--')[0]
-#             #         spis.append(id)
-#             #         if str(id_ev) in spis:
-#             #             print('Было отправлено') 
-#             #         else:
-#             # print(ov_mass)
-#             # print(lv_mass)
-#             # print(set1)
-#             # print(set2)
-#             # print(set3)
-#             # print(set4)
-#             # print(set5)
-
-#             # print(kol_ov)
-            
-#             # print(b,m)
-            
-#             if (kol_ov == 10) and (kol_lv == 10):
-#                 # if (10 >(int(b) - int(m)) >3) or (10>(int(m) - int(b)) >3):
-#                 sets = []
-                
-                
-                
-                        
-    
-                # print(id_ev)
-                liga = resultline['reply']['sports'][tr1]['chmps'][vid]['name_ch']
-                
-                print(liga)
-                date_ev_str = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['date_ev_str']
-                
-                print(date_ev_str)
-                name_ht = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['name_ht']
-                
-                print(name_ht)
-                name_at = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['name_at']
-                
-                print(name_at)
-#                 # set1_mass = get_o_v_1set(ov_mass)
-#                 # print(set1_mass)
-#                 # summ_set1 = summ_point_set_mass(set1_mass)
-#                 # print(summ_set1)
-#                 # set2_mass = get_o_v_2set(ov_mass)
-#                 # print(set2_mass)
-#                 # summ_set2 = summ_point_set_mass(set2_mass)
-#                 # print(summ_set2)
-#                 # set3_mass = get_o_v_3set(ov_mass)
-#                 # print(set3_mass)
-#                 # summ_set3 = summ_point_set_mass(set3_mass)
-#                 # print(summ_set3)
-#                 # set4_mass = get_o_v_4set(ov_mass)
-#                 # print(set4_mass)
-#                 # summ_set4 = summ_point_set_mass(set4_mass)
-#                 # print(summ_set4)
-#                 # set5_mass = get_o_v_5set(ov_mass)
-#                 # print(set5_mass)
-#                 # summ_set5 = summ_point_set_mass(set5_mass)
-#                 # print(summ_set5)
-                
+                if (abs(bolshe - menshe) < 3) or (abs(bolshe - menshe) > 12):
+                    pass
+                else:
+                    id_ev = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['id_ev']
+   
+                    if (bolshe - menshe) > 0:
+                        stavka = 'ТМ 18.5'
+                    else:
+                        stavka = 'ТБ 18.5'
+                    # print(id_ev)
+                    liga = resultline['reply']['sports'][tr1]['chmps'][vid]['name_ch']
                     
-                
-                
-#                 # file.write(f'\n{date_ev_str}-{liga}-{name_ht}-{name_at}-{id_ev}')          
+                    print(liga)
+                    date_ev_str = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['date_ev_str']
                     
+                    print(date_ev_str)
+                    name_ht = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['name_ht']
                     
-                
-#                 if ((b - m) >= 10) and ((mlv - blv) >= 1) and ((mlv / blv) < 2):
+                    print(name_ht)
+                    name_at = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['name_at']
                     
-
-#                     st = 'ТБ 18.5'
-#                     game = []
-#                     setsb = []
-#                     setsm = []
-#                     b1,m1 = kol_set_18_5_bolshe(set1)
-#                     b2,m2 = kol_set_18_5_bolshe(set2)
-#                     b3,m3 = kol_set_18_5_bolshe(set3)
-#                     b4,m4 = kol_set_18_5_bolshe(set4)
-#                     b5,m5 = kol_set_18_5_bolshe(set5)
-#                     if (b1 > m1):
-#                         setsb.append('1')
-#                     else:
-#                         setsm.append('1')
-#                     if (b2 > m2):
-#                         setsb.append('2')
-#                     else:
-#                         setsm.append('2')
-#                     if (b3 > m3):
-#                         setsb.append('3')
-#                     else:
-#                         setsm.append('3')
-#                     if (b4 > m4):
-#                         setsb.append('4')
-#                     else:
-#                         setsm.append('4')
-#                     if (b5 > m5):
-#                         setsb.append('5')
-#                     else:
-#                         setsm.append('5')
-                    
-#                     game.append(id_ev)
-#                     game.append(liga)
-#                     game.append(date_ev_str)
-#                     game.append(name_ht)
-#                     game.append(name_at)
-#                     game.append(b)
-#                     game.append(m)
-#                     game.append(st)
-#                     game.append(blv)
-#                     game.append(mlv)
-#                     game.append(setsb)
-#                     game.append(setsm)
-#                     mass_game.append(game)
-
-
-
-#                     # bs1 = get_kol_bolshe(summ_set1)
-#                     # print(bs1)
-#                     # if bs1 >= 8:
-#                     #     sets.append('1')
-                    
-#                     # bs2 = get_kol_bolshe(summ_set2)
-#                     # print(bs1)
-#                     # if bs2 >= 8:
-#                     #     sets.append('2')
-                    
-#                     # bs3 = get_kol_bolshe(summ_set3)
-#                     # print(bs3)
-#                     # if bs3 >= 8:
-#                     #     sets.append('3')
-                    
-#                     # bs4 = get_kol_bolshe(summ_set4)
-#                     # print(bs4)
-#                     # if bs4 >= 7:
-#                     #     sets.append('4')
-                    
-#                     # bs5 = get_kol_bolshe(summ_set5)
-#                     # print(bs5)
-#                     # if bs5 >= 7:
-#                     #     sets.append('5')
-
-
-
-                    
-
-
-
-                    
-#                 if ((m - b) >= 10) and ((blv - mlv) >=1) and ((blv / mlv) < 2):
-#                     st = 'ТМ 18.5'
-#                     game = []
-#                     setsb = []
-#                     setsm = []
-#                     b1,m1 = kol_set_18_5_bolshe(set1)
-#                     b2,m2 = kol_set_18_5_bolshe(set2)
-#                     b3,m3 = kol_set_18_5_bolshe(set3)
-#                     b4,m4 = kol_set_18_5_bolshe(set4)
-#                     b5,m5 = kol_set_18_5_bolshe(set5)
-#                     if (b1 < m1):
-#                         setsm.append('1')
-#                     else:
-#                         setsb.append('1')
-#                     if (b2 < m2):
-#                         setsm.append('2')
-#                     else:
-#                         setsb.append('2')
-#                     if (b3 < m3):
-#                         setsm.append('3')
-#                     else:
-#                         setsb.append('3')
-#                     if (b4 < m4):
-#                         setsm.append('4')
-#                     else:
-#                         setsb.append('4')
-#                     if (b5 < m5):
-#                         setsm.append('5')
-#                     else:
-#                         setsb.append('5')
-
-#                     game.append(id_ev)
-#                     game.append(liga)
-#                     game.append(date_ev_str)
-#                     game.append(name_ht)
-#                     game.append(name_at)
-#                     game.append(b)
-#                     game.append(m)
-#                     game.append(st)
-#                     game.append(blv)
-#                     game.append(mlv)
-#                     game.append(setsb)
-#                     game.append(setsm)
-#                     mass_game.append(game)
-#                     # ms1 = get_kol_menshe(summ_set1)
-#                     # print(ms1)
-#                     # if ms1 >= 8:
-#                     #     sets.append('1')
-                    
-#                     # ms2 = get_kol_menshe(summ_set2)
-#                     # print(ms1)
-#                     # if ms2 >= 8:
-#                     #     sets.append('2')
-                    
-#                     # ms3 = get_kol_menshe(summ_set3)
-#                     # print(ms3)
-#                     # if ms3 >= 8:
-#                     #     sets.append('3')
-                    
-#                     # ms4 = get_kol_menshe(summ_set4)
-#                     # print(ms4)
-#                     # if ms4 >= 7:
-#                     #     sets.append('4')
-                    
-#                     # ms5 = get_kol_menshe(summ_set5)
-#                     # print(ms5)
-#                     # if ms5 >= 7:
-#                     #     sets.append('5')
-#                 # game.append(sets)
-#                 # with open('game_spis.txt', 'a') as f:
-#                 #     f.write(f'\n{id_ev}')          
-#                 #     f.close()  
-#                 else:
-#                     pass
-                        
-#     print(mass_game)                            
-#     s = sorted(mass_game, key=lambda student: student[2])
-#     mass_game.clear()
-#     print(s)  
-    
-#     for g in s:
-#         # print(g[2],g[3],g[4]) 
-#         with codecs.open('spisok.txt', 'a', 'utf-8') as file:
-#             file.write(f'\n{g[0]}--{g[1]}--{g[2]}--{g[3]}--{g[4]}--{g[7]}') 
-#             file.close()
-#         # fsets = ''
-#         # for g8 in g[8]:
-#         #     fesets = f'{g8} '
-#         #     fsets = fsets + fesets
-                mess = f'\U0001F4C6 {date_ev_str} \n' \
-                            f'\U0001F3D3 {liga}\n' \
-                            f'\U0001F9D1 {name_ht} - {name_at} \n' \
-                           \
-                            f'\U0001F4B2 Последние: {bolshe} - {menshe} \n'\
+                    print(name_at)
+   
+                    mess = f'\U0001F4C6 {date_ev_str} \n' \
+                                f'\U0001F3D3 {liga}\n' \
+                                f'\U0001F9D1 {name_ht} - {name_at} \n' \
                             \
-                            \
-                            f'----------------------------------------------------------\n'\
-                            # f'\n' 
-                # message = message + mess  
-                        
-                send_telegram(mess)
-                send_channel(mess)
+                                f'\U0001F4B2 Последние: {bolshe} - {menshe} \n'\
+                                 f'\U0001F4B2 Ставка: {stavka}\n'\
+                                \
+                                f'----------------------------------------------------------\n'\
+                                # f'\n' 
+                    # message = message + mess  
+                            
+                    send_telegram(mess)
     send_telegram('Поиск завершен')
 #         # print('send')            
 #         print(mess)         
