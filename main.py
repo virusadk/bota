@@ -128,12 +128,17 @@ def main():
                 kol_ov = kol_ochnyh_vstrech(ov_mass)
                 lv_mass = get_last_vstrechi(soup)
                 kol_lv = kol_ochnyh_vstrech(lv_mass)
+                kol = kol_lv + kol_ov
+                bk = bolshe / kol
+                mk = menshe / kol
+                raz = abs (bk - mk)
+                ver = raz * 100
                 b,m = kol_set_18_5_bolshe(ov_mass)
                 blv,mlv = kol_set_18_5_bolshe(lv_mass)
                 bolshe = blv + b
                 menshe = mlv + m
                 print(bolshe, menshe)
-                if (abs(bolshe - menshe) < 3) or (abs(bolshe - menshe) > 12):
+                if (abs(bolshe - menshe) < 3):
                     pass
                 else:
                     id_ev = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['id_ev']
@@ -159,11 +164,11 @@ def main():
                     mess = f'\U0001F4C6 {date_ev_str} \n' \
                                 f'\U0001F3D3 {liga}\n' \
                                 f'\U0001F9D1 {name_ht} - {name_at} \n' \
-                            \
+                                f'\U0001F4B2 Кол. игр: {kol} \n' \
                                 f'\U0001F4B2 Последние: {bolshe} - {menshe} \n'\
                                  f'\U0001F4B2 Ставка: {stavka}\n'\
-                                \
-                                f'----------------------------------------------------------\n'\
+                                 f'\U0001F4B2 Вероятность: {ver}\n'\
+                               \
                                 # f'\n' 
                     # message = message + mess  
                             
