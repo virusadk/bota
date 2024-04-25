@@ -128,15 +128,16 @@ def main():
                 kol_ov = kol_ochnyh_vstrech(ov_mass)
                 lv_mass = get_last_vstrechi(soup)
                 kol_lv = kol_ochnyh_vstrech(lv_mass)
+               
+                b,m = kol_set_18_5_bolshe(ov_mass)
+                blv,mlv = kol_set_18_5_bolshe(lv_mass)
+                bolshe = blv + b
+                menshe = mlv + m
                 kol = kol_lv + kol_ov
                 bk = bolshe / kol
                 mk = menshe / kol
                 raz = abs (bk - mk)
                 ver = raz * 100
-                b,m = kol_set_18_5_bolshe(ov_mass)
-                blv,mlv = kol_set_18_5_bolshe(lv_mass)
-                bolshe = blv + b
-                menshe = mlv + m
                 print(bolshe, menshe)
                 if (abs(bolshe - menshe) < 3):
                     pass
