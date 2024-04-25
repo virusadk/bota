@@ -124,7 +124,7 @@ def main():
 
                 response = requests.get(url_stat, cookies=cookies, headers=headers).text
                 soup = BeautifulSoup(response, 'lxml')
-                ov_mass = get_ochnye_vstrechi(soup)
+                ov_mass = parse(soup)
                 kol_ov = kol_ochnyh_vstrech(ov_mass)
                 lv_mass = get_last_vstrechi(soup)
                 kol_lv = kol_ochnyh_vstrech(lv_mass)
@@ -177,7 +177,46 @@ def main():
     send_telegram('Поиск завершен')
 #         # print('send')            
 #         print(mess)         
-    
+def parse(soup):
+    ov_mass = []
+    # Цикл переборки массива, переданного в функцию
+    # Пробегаем циклом по тэгу <table>
+    for body in soup.find_all('table', class_ = ''):
+        # print(body)
+        # Пробегаем циклом по тэгу <tr>
+        for tr1 in body.find_all('tr', class_ = 'line'):
+            # Пробегаем циклом по тэгу <td> в классе 'score'
+            for ted in tr1.find_all('td', class_ = 'score'):
+                try:
+                    # Получаем нужный нам тэг <td> и получаем текст который находится внутри него
+                    td = ted.get_text()
+                    # Парсим содержимое тега
+                    td1 = td.split(' (')[1]
+                    # Удаляем все знаки ' в строке
+                    td2 = td1.replace(')', "")
+                    # Удаляем все знаки , в строке
+                    td3 = td2.replace(',', "")
+                    # Добавляем полученный результат в подготовленный нами массив
+                    ov_mass.append(td3)
+                except:
+                    pass
+        for tr in body.find_all('tr', class_ = ''):
+            # Пробегаем циклом по тэгу <td> в классе 'score'
+            for ted in tr.find_all('td', class_ = 'score'):
+                try:
+                    # Получаем нужный нам тэг <td> и получаем текст который находится внутри него
+                    td = ted.get_text()
+                    # Парсим содержимое тега
+                    td1 = td.split(' (')[1]
+                    # Удаляем все знаки ' в строке
+                    td2 = td1.replace(')', "")
+                    # Удаляем все знаки , в строке
+                    td3 = td2.replace(',', "")
+                    # Добавляем полученный результат в подготовленный нами массив
+                    ov_mass.append(td3)
+                except:
+                    pass
+    return ov_mass    
 def get_last_vstrechi(mass_stat):
     # Создаем пустой массив
     lv_mass = []
