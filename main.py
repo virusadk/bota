@@ -137,9 +137,15 @@ def main():
                 bk = bolshe / kol
                 mk = menshe / kol
                 raz = abs (bk - mk)
+                razb = abs(bolshe - menshe)
+                summ = bolshe + menshe
+                schet = razb / kol * summ * ver
+                pr = summ / kol
+                pro = 100 / pr
+                deli = schet / pro
                 ver = raz * 100
                 print(bolshe, menshe)
-                if (abs(bolshe - menshe) < 3):
+                if (abs(bolshe - menshe) < 3) and (abs(bolshe - menshe) > 12):
                     pass
                 else:
                     id_ev = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['id_ev']
@@ -148,6 +154,15 @@ def main():
                         stavka = 'ТМ 18.5'
                     else:
                         stavka = 'ТБ 18.5'
+                    if schet > pro:
+                        ok = 'Стабильно'
+                    else:
+                        ok = 'Замена ставки'
+                    if deli < 2:
+                        zahod = '1,2 партии'
+                    else:
+                        zahod = '3,4 партии'
+                        
                     # print(id_ev)
                     liga = resultline['reply']['sports'][tr1]['chmps'][vid]['name_ch']
                     
@@ -169,6 +184,11 @@ def main():
                                 f'\U0001F4B2 Последние: {bolshe} - {menshe} \n'\
                                  f'\U0001F4B2 Ставка: {stavka}\n'\
                                  f'\U0001F4B2 Вероятность: {ver}\n'\
+                                 f'\U0001F4B2 Просчет: {schet}\n'\
+                                f'\U0001F4B2 Процент партии: {pro}\n'\
+                                 f'\U0001F4B2 Относительно партии: {deli}\n'\
+                                 f'\U0001F4B2 Стабильность: {ok}\n'\
+                                f'\U0001F4B2 Партии: {zahod}\n'\
                                \
                                 # f'\n' 
                     # message = message + mess  
