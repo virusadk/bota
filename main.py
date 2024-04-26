@@ -137,13 +137,14 @@ def main():
                 bk = bolshe / kol
                 mk = menshe / kol
                 raz = abs (bk - mk)
+                ver = raz * 100
                 razb = abs(bolshe - menshe)
                 summ = bolshe + menshe
                 schet = razb / kol * summ * ver
                 pr = summ / kol
                 pro = 100 / pr
                 deli = schet / pro
-                ver = raz * 100
+                
                 print(bolshe, menshe)
                 if (abs(bolshe - menshe) < 3) and (abs(bolshe - menshe) > 12):
                     pass
