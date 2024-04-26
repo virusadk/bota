@@ -158,7 +158,7 @@ def main():
                     if schet > pro:
                         ok = 'Стабильно'
                     else:
-                        ok = 'Замена ставки'
+                        ok = 'Неуверенно. Замена ставки либо пропуск'
                     if deli < 2:
                         zahod = '1,2 партии'
                     else:
@@ -183,7 +183,8 @@ def main():
                                 f'\U0001F9D1 {name_ht} - {name_at} \n' \
                                 f'\U0001F4B2 Кол. игр: {kol} \n' \
                                 f'\U0001F4B2 Последние: {bolshe} - {menshe} \n'\
-                                 f'\U0001F4B2 Ставка: {stavka}\n'\
+                                f'\U0001F4B2 Разбежка: {razb} \n'\
+                                 \
                                  f'\U0001F4B2 Вероятность: {ver}\n'\
                                  f'\U0001F4B2 Просчет: {schet}\n'\
                                 f'\U0001F4B2 Процент партии: {pro}\n'\
@@ -191,7 +192,8 @@ def main():
                                  f'\U0001F4B2 Стабильность: {ok}\n'\
                                 f'\U0001F4B2 Партии: {zahod}\n'\
                                \
-                                # f'\n' 
+                                f'\n'\
+                                f'\U0001F4B2 Ставка: {stavka}\n'\
                     # message = message + mess  
                             
                     send_telegram(mess)
