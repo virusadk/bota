@@ -140,7 +140,7 @@ def main():
                 ver = raz * 100
                 razb = abs(bolshe - menshe)
                 summ = bolshe + menshe
-                schet = razb / kol * summ * ver
+                schet = razb / kol * summ * (100 / ver)
                 pr = summ / kol
                 pro = 100 / pr
                 deli = schet / pro
@@ -195,6 +195,7 @@ def main():
                     # message = message + mess  
                             
                     send_telegram(mess)
+                    send_channel(mess)
     send_telegram('Поиск завершен')
 #         # print('send')            
 #         print(mess)         
