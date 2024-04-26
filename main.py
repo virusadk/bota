@@ -140,7 +140,7 @@ def main():
                 ver = raz * 100
                 razb = abs(bolshe - menshe)
                 summ = bolshe + menshe
-                schet = razb / kol * summ * (100 / ver)
+                schet = razb / kol * summ * (ver / 100)
                 pr = summ / kol
                 pro = 100 / pr
                 deli = schet / pro
