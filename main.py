@@ -223,19 +223,20 @@ def main():
                     fpro = f'\U0001F4CB Процент партии: {pro}\n'
                     fprog = f'Прогноз:\n'
                     fprov = f'Стабильность:\n'
+                    prorazb = abs(pro - schet)
                     if abs(pro - schet) > 20:
-                        fprorazb = f'\U00002705 Разбежка просчета: {pro} \U00002705 - Уверенно\n'
+                        fprorazb = f'\U00002705 Разбежка просчета: {prorazb} \U00002705 - Уверенно\n'
                     elif (abs(pro - schet) < 20) and (abs(pro - schet) > 15):
-                        fprorazb = f'\U00002611 Разбежка просчета: {pro} \U00002611 - Стабильно\n'
+                        fprorazb = f'\U00002611 Разбежка просчета: {prorazb} \U00002611 - Стабильно\n'
                         korr = korr + 5
                     elif (abs(pro - schet) < 15) and (abs(pro - schet) > 10):
-                        fprorazb = f'\U00002734 Разбежка просчета: {pro} \U00002734 - В норме\n'
+                        fprorazb = f'\U00002734 Разбежка просчета: {prorazb} \U00002734 - В норме\n'
                         korr = korr + 10
                     elif (abs(pro - schet) < 10) and (abs(pro - schet) > 5):
-                        fprorazb = f'\U000026A0 Разбежка просчета: {pro} \U000026A0 - Минимум\n'
+                        fprorazb = f'\U000026A0 Разбежка просчета: {prorazb} \U000026A0 - Минимум\n'
                         korr = korr + 15
                     elif (abs(pro - schet) < 5) and (abs(pro - schet) >= 0):
-                        fprorazb = f'\U000026D4 Разбежка просчета: {pro} \U000026D4 - Опасно\n'
+                        fprorazb = f'\U000026D4 Разбежка просчета: {prorazb} \U000026D4 - Опасно\n'
                         korr = korr + 20
                     fdeli = f'\U0001F4CB Относительно партии: {deli}\n'
                     if itog < 0.5:
