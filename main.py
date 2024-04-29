@@ -151,9 +151,7 @@ def main():
                     itog = itog1 * deli
                     prohod = (1 - itog) * 100
                     print(bolshe, menshe)
-                if (abs(bolshe - menshe) < 3) and (abs(bolshe - menshe) > 12):
-                    pass
-                else:
+                
                     liga = resultline['reply']['sports'][tr1]['chmps'][vid]['name_ch']
                     
                     print(liga)
