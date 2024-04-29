@@ -223,29 +223,29 @@ def main():
                     if abs(pro - schet) > 20:
                         fprorazb = f'\U00002705 Разбежка просчета: {pro} \U00002705 - Уверенно\n'
                     elif (abs(pro - schet) < 20) and (abs(pro - schet) > 15):
-                        fprorazb = f'\U00002611 Разбежка просчета: {pro} \U00002705 - Стабильно\n'
+                        fprorazb = f'\U00002611 Разбежка просчета: {pro} \U00002611 - Стабильно\n'
                         korr = korr + 5
                     elif (abs(pro - schet) < 15) and (abs(pro - schet) > 10):
-                        fprorazb = f'\U00002734 Разбежка просчета: {pro} \U00002705 - В норме\n'
+                        fprorazb = f'\U00002734 Разбежка просчета: {pro} \U00002734 - В норме\n'
                         korr = korr + 10
                     elif (abs(pro - schet) < 10) and (abs(pro - schet) > 5):
-                        fprorazb = f'\U000026A0 Разбежка просчета: {pro} \U00002705 - Минимум\n'
+                        fprorazb = f'\U000026A0 Разбежка просчета: {pro} \U000026A0 - Минимум\n'
                         korr = korr + 15
                     elif (abs(pro - schet) < 5) and (abs(pro - schet) >= 0):
-                        fprorazb = f'\U000026D4 Разбежка просчета: {pro} \U00002705 - Опасно\n'
+                        fprorazb = f'\U000026D4 Разбежка просчета: {pro} \U000026D4 - Опасно\n'
                         korr = korr + 20
                     fdeli = f'\U0001F4CB Относительно партии: {deli}\n'
                     if itog < 0.5:
                         fitog = f'\U0001F4CA Годность: {itog} - \U00002705\n'
                     elif itog > 0.5:
-                        fitog = f'\U0001F4CA Годность: {itog} - \U00002705\n'
+                        fitog = f'\U0001F4CA Годность: {itog} - \U000026D4\n'
                     fprohod = f'\U0001F4CA Проходимость: {prohod} %\n'
                     fprob = f'\n'
                     korrver = prohod - korr
                     if korrver > 60:
                         fkorrver = f'\U0001F4CA Скоррект.вер.: {korrver} % \U00002705\n'
                     elif korrver < 60:
-                        fkorrver = f'\U0001F4CA Скоррект.вер.: {korrver} % \U00002705\n'
+                        fkorrver = f'\U0001F4CA Скоррект.вер.: {korrver} % \U000026D4\n'
                     
                     if (bolshe - menshe) > 0:
                         fstavka = 'ТМ 18.5\n'
