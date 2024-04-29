@@ -164,7 +164,7 @@ def main():
                     
                     print(name_ht)
                     name_at = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['name_at']
-                    
+                    korr = 0
                     print(name_at)
                     id_ev = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['id_ev']
                     fdate = f'\U0001F4C6 {date_ev_str} \n'
@@ -174,35 +174,47 @@ def main():
                         fkolgame = f'\U00002705 Кол. игр: {kol} - Уверенно \n' 
                     elif (kol < 20) and (kol >= 15) :
                         fkolgame = f'\U00002611 Кол. игр: {kol} - Стабильно \n' 
+                        korr = korr + 5
                     elif (kol < 15) and (kol >= 10) :
                         fkolgame = f'\U00002734 Кол. игр: {kol} - В норме \n' 
+                        korr = korr + 10
                     elif (kol < 10) and (kol >= 5) :
                         fkolgame = f'\U000026A0 Кол. игр: {kol} - Минимум \n' 
+                        korr = korr + 15
                     elif (kol < 5) and (kol >= 0) :
                         fkolgame = f'\U000026D4 Кол. игр: {kol} - Опасно \n' 
+                        korr = korr + 20
                     fkolbm = f'\U00002696 ТБ: {bolshe} - ТМ: {menshe} \n'
                     if summ >= 80:
                         fsummpart = f'\U00002705 Кол. партий: {summ} - Уверенно\n'
                     elif summ < 80 and summ > 70:
                         fsummpart = f'\U00002611 Кол. партий: {summ} - Стабильно\n'
+                        korr = korr + 5
                     elif summ < 70 and summ > 60:
                         fsummpart = f'\U00002734 Кол. партий: {summ} - В норме\n'
+                        korr = korr + 10
                     elif summ < 60 and summ > 50:
                         fsummpart = f'\U000026A0 Кол. партий: {summ} - Минимум\n'
+                        korr = korr + 15
                     elif summ < 50:
                         fsummpart = f'\U000026D4 Кол. партий: {summ} - Опасно\n'
+                        korr = korr + 20
 
                     
                     if razb >= 20:
                         frazb = f'\U00002705 Разбежка: {razb} - Уверенно\n'
                     elif razb < 20 and razb >= 15:
                         frazb = f'\U00002611 Разбежка: {razb} - Стабильно\n'
+                        korr = korr + 5
                     elif razb < 15 and razb >= 10:
                         frazb = f'\U00002734 Разбежка: {razb} - В норме\n'
+                        korr = korr + 10
                     elif razb < 10 and razb >= 5:
                         frazb = f'\U000026A0 Разбежка: {razb} - Минимум\n'
+                        korr = korr + 15
                     elif razb < 5 and razb >= 0:
                         frazb = f'\U000026D4 Разбежка: {razb} - Опасно\n'
+                        korr = korr + 20
                     fver = f'\U0001F4CB Пром. вероятность: {ver}\n'
                     fschet = f'\U0001F4CB Просчет: {schet}\n'
                     fpro = f'\U0001F4CB Процент партии: {pro}\n'
@@ -212,12 +224,16 @@ def main():
                         fprorazb = f'\U00002705 Разбежка просчета: {pro} \U00002705 - Уверенно\n'
                     elif (abs(pro - schet) < 20) and (abs(pro - schet) > 15):
                         fprorazb = f'\U00002611 Разбежка просчета: {pro} \U00002705 - Стабильно\n'
+                        korr = korr + 5
                     elif (abs(pro - schet) < 15) and (abs(pro - schet) > 10):
                         fprorazb = f'\U00002734 Разбежка просчета: {pro} \U00002705 - В норме\n'
+                        korr = korr + 10
                     elif (abs(pro - schet) < 10) and (abs(pro - schet) > 5):
                         fprorazb = f'\U000026A0 Разбежка просчета: {pro} \U00002705 - Минимум\n'
+                        korr = korr + 15
                     elif (abs(pro - schet) < 5) and (abs(pro - schet) >= 0):
                         fprorazb = f'\U000026D4 Разбежка просчета: {pro} \U00002705 - Опасно\n'
+                        korr = korr + 20
                     fdeli = f'\U0001F4CB Относительно партии: {deli}\n'
                     if itog < 0.5:
                         fitog = f'\U0001F4CA Годность: {itog} - \U00002705\n'
@@ -225,7 +241,11 @@ def main():
                         fitog = f'\U0001F4CA Годность: {itog} - \U00002705\n'
                     fprohod = f'\U0001F4CA Проходимость: {prohod} %\n'
                     fprob = f'\n'
-                    
+                    korrver = prohod - korr
+                    if korrver > 60:
+                        fkorrver = f'\U0001F4CA Скоррект.вер.: {korrver} % \U00002705\n'
+                    elif korrver < 60:
+                        fkorrver = f'\U0001F4CA Скоррект.вер.: {korrver} % \U00002705\n'
                     
                     if (bolshe - menshe) > 0:
                         fstavka = 'ТМ 18.5\n'
@@ -240,7 +260,7 @@ def main():
                     # print(id_ev)
                     
    
-                    mess = fdate + fliga + fteams + fprob +fkolgame + fkolbm + fsummpart + frazb + fver + fschet + fpro + fdeli + fprob +fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod 
+                    mess = fdate + fliga + fteams + fprob +fkolgame + fkolbm + fsummpart + frazb + fver + fschet + fpro + fdeli + fprob +fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver
                     # message = message + mess  
                     # bot.send_message(message.chat.id, text=mess,parse_mode="HTML")        
                     send_telegram(mess)
