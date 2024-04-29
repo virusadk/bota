@@ -164,7 +164,7 @@ def main():
                     
                     print(name_ht)
                     name_at = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['name_at']
-                    korr == 0
+                    korr = 0
                     print(name_at)
                     id_ev = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['id_ev']
                     fdate = f'\U0001F4C6 {date_ev_str} \n'
