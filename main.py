@@ -144,21 +144,57 @@ def main():
                 pr = summ / kol
                 pro = 100 / pr
                 deli = schet / pro
+                itog = pr / raz * deli
                 
                 print(bolshe, menshe)
                 if (abs(bolshe - menshe) < 3) and (abs(bolshe - menshe) > 12):
                     pass
                 else:
                     id_ev = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['id_ev']
-   
+                    fdate = f'\U0001F4C6 {date_ev_str} \n'
+                    fliga = f'\U0001F3D3 {liga}\n' \
+                    fteams = f'\U0001F9D1 {name_ht} - {name_at} \n' \
+                    if kol = 20:
+                        fkolgame = f'\U00002705 Кол. игр: {kol} - Уверенно \n' \
+                    elif (kol < 20) and (kol >= 15) :
+                        fkolgame = f'\U00002611 Кол. игр: {kol} - Стабильно \n' \
+                    elif (kol < 15) and (kol >= 10) :
+                        fkolgame = f'\U00002734 Кол. игр: {kol} - В норме \n' \
+                    elif (kol < 10) and (kol >= 5) :
+                        fkolgame = f'\U000026A0 Кол. игр: {kol} - Минимум \n' \
+                    elif (kol < 5) and (kol >= 0) :
+                        fkolgame = f'\U000026D4 Кол. игр: {kol} - Опасно \n' \
+                    fkolbm = f'\U0001F4B2 Партии > 18.5: {bolshe} - Партии < 18.5: {menshe} \n'\
+                    if summ >= 80:
+                        fsummpart = f'\U00002705 Кол. партий: {summ} - Уверенно\n'\
+                    elif summ < 80 and summ > 70:
+                        fsummpart = f'\U00002611 Кол. партий: {summ} - Стабильно\n'\
+                    elif summ < 70 and summ > 60:
+                        fsummpart = f'\U00002734 Кол. партий: {summ} - В норме\n'\
+                    elif summ < 60 and summ > 50:
+                        fsummpart = f'\U000026A0 Кол. партий: {summ} - Минимум\n'\
+                    elif summ < 50:
+                        fsummpart = f'\U000026D4 Кол. партий: {summ} - Опасно\n'\
+
+                    
+                    if razb >= 20:
+                        frazb = f'\U00002705 Разбежка: {razb} - Уверенно\n'\
+                    elif razb < 20 and razb >= 15:
+                        frazb = f'\U00002611 Разбежка: {razb} - Стабильно\n'\
+                    elif razb < 15 and razb >= 10:
+                        frazb = f'\U00002734 Разбежка: {razb} - В норме\n'\
+                    elif razb < 10 and razb >= 5:
+                        frazb = f'\U000026A0 Разбежка: {razb} - Минимум\n'\
+                    elif razb < 5 and razb >= 0:
+                        frazb = f'\U000026D4 Разбежка: {razb} - Опасно\n'\
+                    
+                    
+                    
                     if (bolshe - menshe) > 0:
                         stavka = 'ТМ 18.5'
                     else:
                         stavka = 'ТБ 18.5'
-                    if schet > pro:
-                        ok = 'Стабильно'
-                    else:
-                        ok = 'Неуверенно. Замена ставки либо пропуск'
+                    
                     if deli < 2:
                         zahod = '1,2 партии'
                     else:
@@ -189,11 +225,12 @@ def main():
                                  f'\U0001F4B2 Просчет: {schet}\n'\
                                 f'\U0001F4B2 Процент партии: {pro}\n'\
                                  f'\U0001F4B2 Относительно партии: {deli}\n'\
-                                 f'\U0001F4B2 Стабильность: {ok}\n'\
+                                \
                                 f'\U0001F4B2 Партии: {zahod}\n'\
                                \
                                 f'\n'\
                                 f'\U0001F4B2 Ставка: {stavka}\n'\
+                                f'\U0001F4B2 Ставка: {itog}\n'\
                     # message = message + mess  
                             
                     send_telegram(mess)
