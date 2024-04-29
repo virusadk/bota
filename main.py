@@ -180,7 +180,7 @@ def main():
                         fkolgame = f'\U000026A0 Кол. игр: {kol} - Минимум \n' 
                     elif (kol < 5) and (kol >= 0) :
                         fkolgame = f'\U000026D4 Кол. игр: {kol} - Опасно \n' 
-                    fkolbm = f'\U0001F4B2 Партии > 18.5: {bolshe} - Партии < 18.5: {menshe} \n'
+                    fkolbm = f'\U00002696 ТБ: {bolshe} - ТМ: {menshe} \n'
                     if summ >= 80:
                         fsummpart = f'\U00002705 Кол. партий: {summ} - Уверенно\n'
                     elif summ < 80 and summ > 70:
@@ -203,39 +203,39 @@ def main():
                         frazb = f'\U000026A0 Разбежка: {razb} - Минимум\n'
                     elif razb < 5 and razb >= 0:
                         frazb = f'\U000026D4 Разбежка: {razb} - Опасно\n'
-                    fver = f'\U0001F4B2 Пром. вероятность: {ver}\n'
-                    fschet = f'\U0001F4B2 Просчет: {schet}\n'
-                    fpro = f'\U0001F4B2 Процент партии: {pro}\n'
+                    fver = f'\U0001F4CB Пром. вероятность: {ver}\n'
+                    fschet = f'\U0001F4CB Просчет: {schet}\n'
+                    fpro = f'\U0001F4CB Процент партии: {pro}\n'
                     fprog = f'Прогноз:\n'
                     fprov = f'Стабильность:\n'
                     if abs(pro - schet) > 20:
-                        fprorazb = f'\U00002705 Разбежка просчета: {pro} - Уверенно\n'
+                        fprorazb = f'\U00002705 Разбежка просчета: {pro} \U00002705 - Уверенно\n'
                     elif (abs(pro - schet) < 20) and (abs(pro - schet) > 15):
-                        fprorazb = f'\U00002611 Разбежка просчета: {pro} - Стабильно\n'
+                        fprorazb = f'\U00002611 Разбежка просчета: {pro} \U00002705 - Стабильно\n'
                     elif (abs(pro - schet) < 15) and (abs(pro - schet) > 10):
-                        fprorazb = f'\U00002734 Разбежка просчета: {pro} - В норме\n'
+                        fprorazb = f'\U00002734 Разбежка просчета: {pro} \U00002705 - В норме\n'
                     elif (abs(pro - schet) < 10) and (abs(pro - schet) > 5):
-                        fprorazb = f'\U000026A0 Разбежка просчета: {pro} - Минимум\n'
+                        fprorazb = f'\U000026A0 Разбежка просчета: {pro} \U00002705 - Минимум\n'
                     elif (abs(pro - schet) < 5) and (abs(pro - schet) >= 0):
-                        fprorazb = f'\U000026D4 Разбежка просчета: {pro} - Опасно\n'
-                    fdeli = f'\U0001F4B2 Относительно партии: {deli}\n'
+                        fprorazb = f'\U000026D4 Разбежка просчета: {pro} \U00002705 - Опасно\n'
+                    fdeli = f'\U0001F4CB Относительно партии: {deli}\n'
                     if itog < 0.5:
-                        fitog = f'\U0001F4CA Годность: {itog} - \U00002714\n'
+                        fitog = f'\U0001F4CA Годность: {itog} - \U00002705\n'
                     elif itog > 0.5:
-                        fitog = f'\U0001F4CA Годность: {itog} - \U0000274C\n'
+                        fitog = f'\U0001F4CA Годность: {itog} - \U00002705\n'
                     fprohod = f'\U0001F4CA Проходимость: {prohod} %\n'
                     fprob = f'\n'
                     
                     
                     if (bolshe - menshe) > 0:
-                        fstavka = 'ТМ 18.5'
+                        fstavka = 'ТМ 18.5\n'
                     else:
-                        fstavka = 'ТБ 18.5'
+                        fstavka = 'ТБ 18.5\n'
                     
                     if deli < 2:
-                        fzahod = 'Можно играть 1,2 партии'
+                        fzahod = 'Можно играть 1,2 партии\n'
                     else:
-                        fzahod = 'Можно играть 3,4 партии'
+                        fzahod = 'Можно играть 3,4 партии\n'
                         
                     # print(id_ev)
                     
