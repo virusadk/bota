@@ -142,6 +142,7 @@ def main():
                 summ = bolshe + menshe
                 schet = razb / kol * summ * (ver / 100)
                 pr = summ / kol
+                print('Партии на игры',pr)
                 pro = 100 / pr
                 deli = schet / pro
                 itog1 = pr / raz
