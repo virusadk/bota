@@ -151,6 +151,18 @@ def main():
                 if (abs(bolshe - menshe) < 3) and (abs(bolshe - menshe) > 12):
                     pass
                 else:
+                    liga = resultline['reply']['sports'][tr1]['chmps'][vid]['name_ch']
+                    
+                    print(liga)
+                    date_ev_str = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['date_ev_str']
+                    
+                    print(date_ev_str)
+                    name_ht = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['name_ht']
+                    
+                    print(name_ht)
+                    name_at = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['name_at']
+                    
+                    print(name_at)
                     id_ev = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['id_ev']
                     fdate = f'\U0001F4C6 {date_ev_str} \n'
                     fliga = f'\U0001F3D3 {liga}\n' 
@@ -223,18 +235,7 @@ def main():
                         fzahod = 'Можно играть 3,4 партии'
                         
                     # print(id_ev)
-                    liga = resultline['reply']['sports'][tr1]['chmps'][vid]['name_ch']
                     
-                    print(liga)
-                    date_ev_str = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['date_ev_str']
-                    
-                    print(date_ev_str)
-                    name_ht = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['name_ht']
-                    
-                    print(name_ht)
-                    name_at = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['name_at']
-                    
-                    print(name_at)
    
                     mess = fdate + fliga + fteams + fprob +fkolgame + fkolbm + fsummpart + frazb + fver + fschet + fpro + fdeli + fprob +fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod 
                     # message = message + mess  
