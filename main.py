@@ -145,7 +145,7 @@ def main():
                 print('Партии на игры',pr)
                 pro = 100 / pr
                 deli = schet / pro
-                itog1 = pr / raz
+                itog1 = pr / razb
                 itog = itog1 * deli
                 prohod = (1 - itog) * 100
                 
