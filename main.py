@@ -272,7 +272,7 @@ def main():
                     # message = message + mess  
                     # bot.send_message(message.chat.id, text=mess,parse_mode="HTML")        
                     send_telegram(mess)
-                    if korrver > 50 and razb >= 8:
+                    if korrver > 50 and razb >= 5:
                         send_channel(messchannel)
                     else:
                         pass
