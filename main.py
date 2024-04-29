@@ -208,15 +208,18 @@ def main():
                         frazb = f'\U00002705 Разбежка: {razb} - Уверенно\n'
                     elif razb < 20 and razb >= 15:
                         frazb = f'\U00002611 Разбежка: {razb} - Стабильно\n'
-                        korr = korr + 5
+                        korr = korr + 3
                     elif razb < 15 and razb >= 10:
                         frazb = f'\U00002734 Разбежка: {razb} - В норме\n'
-                        korr = korr + 10
+                        korr = korr + 6
                     elif razb < 10 and razb >= 5:
                         frazb = f'\U000026A0 Разбежка: {razb} - Минимум\n'
-                        korr = korr + 15
-                    elif razb < 5 and razb >= 0:
+                        korr = korr + 9
+                    elif razb < 5 and razb >= 3:
                         frazb = f'\U000026D4 Разбежка: {razb} - Опасно\n'
+                        korr = korr + 12
+                    elif razb < 3 :
+                        frazb = f'\U000026D4 Разбежка: {razb} - Критически опасно\n'
                         korr = korr + 20
                     fver = f'\U0001F4CB Пром. вероятность: {ver}\n'
                     fschet = f'\U0001F4CB Просчет: {schet}\n'
@@ -265,11 +268,11 @@ def main():
                     
    
                     mess = fdate + fliga + fteams + fprob +fkolgame + fkolbm + fsummpart + frazb + fver + fschet + fpro + fdeli + fprob +fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver
-                    messchannel = fdate + fliga + fteams + fprob + fprog + fstavka + fzahod + fprob + fprov + fkorrver
+                    messchannel = fdate + fliga + fteams + frazb + fprob + fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver
                     # message = message + mess  
                     # bot.send_message(message.chat.id, text=mess,parse_mode="HTML")        
                     send_telegram(mess)
-                    if korrver > 50:
+                    if korrver > 50 and razb >= 8:
                         send_channel(messchannel)
                     else:
                         pass
