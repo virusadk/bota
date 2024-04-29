@@ -144,7 +144,8 @@ def main():
                 pr = summ / kol
                 pro = 100 / pr
                 deli = schet / pro
-                itog = pr / raz * deli
+                itog1 = pr / raz
+                itog = itog1 * deli
                 prohod = (1 - itog) * 100
                 
                 print(bolshe, menshe)
