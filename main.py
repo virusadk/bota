@@ -145,6 +145,7 @@ def main():
                 pro = 100 / pr
                 deli = schet / pro
                 itog = pr / raz * deli
+                prohod = (1 - itog) * 100
                 
                 print(bolshe, menshe)
                 if (abs(bolshe - menshe) < 3) and (abs(bolshe - menshe) > 12):
@@ -187,18 +188,39 @@ def main():
                         frazb = f'\U000026A0 Разбежка: {razb} - Минимум\n'\
                     elif razb < 5 and razb >= 0:
                         frazb = f'\U000026D4 Разбежка: {razb} - Опасно\n'\
-                    
+                    fver = f'\U0001F4B2 Пром. вероятность: {ver}\n'\
+                    fschet = f'\U0001F4B2 Просчет: {schet}\n'\
+                    fpro = f'\U0001F4B2 Процент партии: {pro}\n'\
+                    fprog = f'Прогноз:\n'
+                    fprov = f'Стабильность:\n'
+                    if abs(pro - schet) > 20:
+                        fprorazb = f'\U00002705 Разбежка просчета: {pro} - Уверенно\n'\
+                    elif (abs(pro - schet) < 20) and (abs(pro - schet) > 15):
+                        fprorazb = f'\U00002611 Разбежка просчета: {pro} - Стабильно\n'\
+                    elif (abs(pro - schet) < 15) and (abs(pro - schet) > 10):
+                        fprorazb = f'\U00002734 Разбежка просчета: {pro} - В норме\n'\
+                    elif (abs(pro - schet) < 10) and (abs(pro - schet) > 5):
+                        fprorazb = f'\U000026A0 Разбежка просчета: {pro} - Минимум\n'\
+                    elif (abs(pro - schet) < 5) and (abs(pro - schet) >= 0):
+                        fprorazb = f'\U000026D4 Разбежка просчета: {pro} - Опасно\n'\
+                    fdeli = f'\U0001F4B2 Относительно партии: {deli}\n'\
+                    if itog < 0.5:
+                        fitog = f'\U0001F4CA Годность: {itog} - \U00002714\n'
+                    elif itog > 0.5:
+                        fitog = f'\U0001F4CA Годность: {itog} - \U0000274C\n'
+                    fprohod = f'\U0001F4CA Проходимость: {prohod} %\n'
+                    fprob = f'\n'
                     
                     
                     if (bolshe - menshe) > 0:
-                        stavka = 'ТМ 18.5'
+                        fstavka = 'ТМ 18.5'
                     else:
-                        stavka = 'ТБ 18.5'
+                        fstavka = 'ТБ 18.5'
                     
                     if deli < 2:
-                        zahod = '1,2 партии'
+                        fzahod = 'Можно играть 1,2 партии'
                     else:
-                        zahod = '3,4 партии'
+                        fzahod = 'Можно играть 3,4 партии'
                         
                     # print(id_ev)
                     liga = resultline['reply']['sports'][tr1]['chmps'][vid]['name_ch']
@@ -214,26 +236,10 @@ def main():
                     
                     print(name_at)
    
-                    mess = f'\U0001F4C6 {date_ev_str} \n' \
-                                f'\U0001F3D3 {liga}\n' \
-                                f'\U0001F9D1 {name_ht} - {name_at} \n' \
-                                f'\U0001F4B2 Кол. игр: {kol} \n' \
-                                f'\U0001F4B2 Последние: {bolshe} - {menshe} \n'\
-                                f'\U0001F4B2 Разбежка: {razb} \n'\
-                                 \
-                                 f'\U0001F4B2 Вероятность: {ver}\n'\
-                                 f'\U0001F4B2 Просчет: {schet}\n'\
-                                f'\U0001F4B2 Процент партии: {pro}\n'\
-                                 f'\U0001F4B2 Относительно партии: {deli}\n'\
-                                \
-                                f'\U0001F4B2 Партии: {zahod}\n'\
-                               \
-                                f'\n'\
-                                f'\U0001F4B2 Ставка: {stavka}\n'\
-                                f'\U0001F4B2 Ставка: {itog}\n'\
+                    mess = fdate + fliga + fteams + fprob +fkolgame + fkolbm + fsummpart + frazb + fver + fschet + fpro + fdeli + fprob +fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod 
                     # message = message + mess  
-                            
-                    send_telegram(mess)
+                    bot.send_message(message.chat.id, text=mess,parse_mode="HTML")        
+                    # send_telegram(mess)
                     send_channel(mess)
     send_telegram('Поиск завершен')
 #         # print('send')            
