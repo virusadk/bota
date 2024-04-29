@@ -150,10 +150,7 @@ def main():
                     print('Партии на игры на разбежку',itog1)
                     itog = itog1 * deli
                     prohod = (1 - itog) * 100
-                except:
-                    pass
-                
-                print(bolshe, menshe)
+                    print(bolshe, menshe)
                 if (abs(bolshe - menshe) < 3) and (abs(bolshe - menshe) > 12):
                     pass
                 else:
@@ -276,6 +273,10 @@ def main():
                         send_channel(messchannel)
                     else:
                         pass
+                except:
+                    pass
+                
+                
     send_telegram('Поиск завершен')
 #         # print('send')            
 #         print(mess)         
