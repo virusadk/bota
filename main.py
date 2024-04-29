@@ -155,7 +155,7 @@ def main():
                     fdate = f'\U0001F4C6 {date_ev_str} \n'
                     fliga = f'\U0001F3D3 {liga}\n' 
                     fteams = f'\U0001F9D1 {name_ht} - {name_at} \n' 
-                    if kol = 20:
+                    if kol == 20:
                         fkolgame = f'\U00002705 Кол. игр: {kol} - Уверенно \n' 
                     elif (kol < 20) and (kol >= 15) :
                         fkolgame = f'\U00002611 Кол. игр: {kol} - Стабильно \n' 
