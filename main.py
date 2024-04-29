@@ -145,10 +145,13 @@ def main():
                 print('Партии на игры',pr)
                 pro = 100 / pr
                 deli = schet / pro
-                itog1 = pr / razb
-                print('Партии на игры на разбежку',itog1)
-                itog = itog1 * deli
-                prohod = (1 - itog) * 100
+                try:
+                    itog1 = pr / razb
+                    print('Партии на игры на разбежку',itog1)
+                    itog = itog1 * deli
+                    prohod = (1 - itog) * 100
+                except:
+                    pass
                 
                 print(bolshe, menshe)
                 if (abs(bolshe - menshe) < 3) and (abs(bolshe - menshe) > 12):
