@@ -241,7 +241,7 @@ def main():
                     # message = message + mess  
                     # bot.send_message(message.chat.id, text=mess,parse_mode="HTML")        
                     send_telegram(mess)
-                    send_channel(mess)
+                    # send_channel(mess)
     send_telegram('Поиск завершен')
 #         # print('send')            
 #         print(mess)         
