@@ -239,8 +239,8 @@ def main():
    
                     mess = fdate + fliga + fteams + fprob +fkolgame + fkolbm + fsummpart + frazb + fver + fschet + fpro + fdeli + fprob +fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod 
                     # message = message + mess  
-                    bot.send_message(message.chat.id, text=mess,parse_mode="HTML")        
-                    # send_telegram(mess)
+                    # bot.send_message(message.chat.id, text=mess,parse_mode="HTML")        
+                    send_telegram(mess)
                     send_channel(mess)
     send_telegram('Поиск завершен')
 #         # print('send')            
