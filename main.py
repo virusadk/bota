@@ -145,147 +145,150 @@ def main():
                 print('Партии на игры',pr)
                 pro = 100 / pr
                 deli = schet / pro
-                try:
-                    itog1 = pr / razb
-                    print('Партии на игры на разбежку',itog1)
-                    itog = itog1 * deli
-                    prohod = (1 - itog) * 100
-                    print(bolshe, menshe)
-                
-                    liga = resultline['reply']['sports'][tr1]['chmps'][vid]['name_ch']
-                    
-                    print(liga)
-                    date_ev_str = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['date_ev_str']
-                    
-                    print(date_ev_str)
-                    name_ht = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['name_ht']
-                    
-                    print(name_ht)
-                    name_at = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['name_at']
-                    korr = 0
-                    print(name_at)
-                    id_ev = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['id_ev']
-                    fdate = f'\U0001F4C6 {date_ev_str} \n'
-                    fliga = f'\U0001F3D3 {liga}\n' 
-                    fteams = f'\U0001F9D1 {name_ht} - {name_at} \n' 
-                    if kol == 20:
-                        fkolgame = f'\U00002705 Кол. игр: {kol} - Уверенно \n' 
-                    elif (kol < 20) and (kol >= 15) :
-                        fkolgame = f'\U00002611 Кол. игр: {kol} - Стабильно \n' 
-                        korr = korr + 5
-                    elif (kol < 15) and (kol >= 10) :
-                        fkolgame = f'\U00002734 Кол. игр: {kol} - В норме \n' 
-                        korr = korr + 10
-                    elif (kol < 10) and (kol >= 5) :
-                        fkolgame = f'\U000026A0 Кол. игр: {kol} - Минимум \n' 
-                        korr = korr + 15
-                    elif (kol < 5) and (kol >= 0) :
-                        fkolgame = f'\U000026D4 Кол. игр: {kol} - Опасно \n' 
-                        korr = korr + 20
-                    fkolbm = f'\U00002696 ТБ: {bolshe} - ТМ: {menshe} \n'
-                    if summ >= 80:
-                        fsummpart = f'\U00002705 Кол. партий: {summ} - Уверенно\n'
-                    elif summ < 80 and summ > 70:
-                        fsummpart = f'\U00002611 Кол. партий: {summ} - Стабильно\n'
-                        korr = korr + 5
-                    elif summ < 70 and summ > 60:
-                        fsummpart = f'\U00002734 Кол. партий: {summ} - В норме\n'
-                        korr = korr + 10
-                    elif summ < 60 and summ > 50:
-                        fsummpart = f'\U000026A0 Кол. партий: {summ} - Минимум\n'
-                        korr = korr + 15
-                    elif summ < 50:
-                        fsummpart = f'\U000026D4 Кол. партий: {summ} - Опасно\n'
-                        korr = korr + 20
-
-                    
-                    if razb >= 20:
-                        frazb = f'\U00002705 Разбежка: {razb} - Уверенно\n'
-                    elif razb < 20 and razb >= 15:
-                        frazb = f'\U00002611 Разбежка: {razb} - Стабильно\n'
-                        korr = korr + 3
-                    elif razb < 15 and razb >= 10:
-                        frazb = f'\U00002734 Разбежка: {razb} - В норме\n'
-                        korr = korr + 6
-                    elif razb < 10 and razb >= 5:
-                        frazb = f'\U000026A0 Разбежка: {razb} - Минимум\n'
-                        korr = korr + 9
-                    elif razb < 5 and razb >= 3:
-                        frazb = f'\U000026D4 Разбежка: {razb} - Опасно\n'
-                        korr = korr + 12
-                    elif razb < 3 :
-                        frazb = f'\U000026D4 Разбежка: {razb} - Критически опасно\n'
-                        korr = korr + 20
-                    fver = f'\U0001F4CB Пром. вероятность: {ver}\n'
-                    fschet = f'\U0001F4CB Просчет: {schet}\n'
-                    fpro = f'\U0001F4CB Процент партии: {pro}\n'
-                    fprog = f'Прогноз:\n'
-                    fprov = f'Стабильность:\n'
-                    prorazb = abs(pro - schet)
-                    if abs(pro - schet) > 20:
-                        fprorazb = f'\U00002705 Разбежка просчета: {prorazb} \U00002705 - Уверенно\n'
-                    elif (abs(pro - schet) < 20) and (abs(pro - schet) > 15):
-                        fprorazb = f'\U00002611 Разбежка просчета: {prorazb} \U00002611 - Стабильно\n'
-                        korr = korr + 5
-                    elif (abs(pro - schet) < 15) and (abs(pro - schet) > 10):
-                        fprorazb = f'\U00002734 Разбежка просчета: {prorazb} \U00002734 - В норме\n'
-                        korr = korr + 10
-                    elif (abs(pro - schet) < 10) and (abs(pro - schet) > 5):
-                        fprorazb = f'\U000026A0 Разбежка просчета: {prorazb} \U000026A0 - Минимум\n'
-                        korr = korr + 15
-                    elif (abs(pro - schet) < 5) and (abs(pro - schet) >= 0):
-                        fprorazb = f'\U000026D4 Разбежка просчета: {prorazb} \U000026D4 - Опасно\n'
-                        korr = korr + 20
-                    fdeli = f'\U0001F4CB Относительно партии: {deli}\n'
-                    if itog < 0.5:
-                        fitog = f'\U0001F4CA Годность: {itog} - \U00002705\n'
-                    elif itog > 0.5:
-                        fitog = f'\U0001F4CA Годность: {itog} - \U000026D4\n'
-                    fprohod = f'\U0001F4CA Проходимость: {prohod} %\n'
-                    fprob = f'\n'
-                    korrver = prohod - korr
-                    if korrver > 60:
-                        fkorrver = f'\U0001F4CA Скоррект.вер.: {korrver} % \U00002705\n'
-                    elif korrver < 60:
-                        fkorrver = f'\U0001F4CA Скоррект.вер.: {korrver} % \U000026D4\n'
-                    
-                    if (bolshe - menshe) > 0:
-                        fstavka = 'ТМ 18.5\n'
-                    else:
-                        fstavka = 'ТБ 18.5\n'
-                    
-                    if deli < 2:
-                        fzahod = 'Можно играть 1,2 партии\n'
-                    else:
-                        fzahod = 'Можно играть 3,4 партии\n'
-                        
-                    # print(id_ev)
-                    
-                    med = f'\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\n'
-                    mess = fdate + fliga + fteams + fprob +fkolgame + fkolbm + fsummpart + frazb + fver + fschet + fpro + fdeli + fprob +fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver
-                    messchannel = med + fdate + fliga + fteams + frazb + fprob + fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver
-                    # message = message + mess  
-                    # bot.send_message(message.chat.id, text=mess,parse_mode="HTML")        
-                    send_telegram(mess)
-                    if (korrver > 50 and razb >= 10 and prorazb > 10) or korrver > 70:
-                        send_channel(messchannel)
-                    if (prorazb > 20 and itog < 0.5 and prohod > 70 and korrver < 70):
-                        med = f'\U0001F948\U0001F948\U0001F948\U0001F948\U0001F948\U0001F948\U0001F948\U0001F948\U0001F948\U0001F948\n'
-                        messchannel = med + fdate + fliga + fteams + frazb + fprob + fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver
-                        send_channel(messchannel)
-                    else:
-                        if korrver < 10 and prorazb < 5:
-                            finv = f'\U0000267B Инверсия ставки \n'
-                            if fstavka == 'ТМ 18.5\n':
-                                fstavkainv == 'Инв. ставка : ТБ 18.5\n'
-                            if fstavka == 'ТБ 18.5\n':
-                                fstavkainv == 'Инв. ставка : ТМ 18.5\n'
-                            med = f'\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\n'
-                            messchannelinv = med + fdate + fliga + fteams + frazb + fprob + fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver + finv + fstavkainv
-                            send_channel(messchannelinv)
-                except:
+                if razb < 5:
                     pass
-                
+                else:
+                    try:
+                        itog1 = pr / razb
+                        print('Партии на игры на разбежку',itog1)
+                        itog = itog1 * deli
+                        prohod = (1 - itog) * 100
+                        print(bolshe, menshe)
+                    
+                        liga = resultline['reply']['sports'][tr1]['chmps'][vid]['name_ch']
+                        
+                        print(liga)
+                        date_ev_str = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['date_ev_str']
+                        
+                        print(date_ev_str)
+                        name_ht = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['name_ht']
+                        
+                        print(name_ht)
+                        name_at = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['name_at']
+                        korr = 0
+                        print(name_at)
+                        id_ev = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['id_ev']
+                        fdate = f'\U0001F4C6 {date_ev_str} \n'
+                        fliga = f'\U0001F3D3 {liga}\n' 
+                        fteams = f'\U0001F9D1 {name_ht} - {name_at} \n' 
+                        if kol == 20:
+                            fkolgame = f'\U00002705 Кол. игр: {kol} - Уверенно \n' 
+                        elif (kol < 20) and (kol >= 15) :
+                            fkolgame = f'\U00002611 Кол. игр: {kol} - Стабильно \n' 
+                            korr = korr + 5
+                        elif (kol < 15) and (kol >= 10) :
+                            fkolgame = f'\U00002734 Кол. игр: {kol} - В норме \n' 
+                            korr = korr + 10
+                        elif (kol < 10) and (kol >= 5) :
+                            fkolgame = f'\U000026A0 Кол. игр: {kol} - Минимум \n' 
+                            korr = korr + 15
+                        elif (kol < 5) and (kol >= 0) :
+                            fkolgame = f'\U000026D4 Кол. игр: {kol} - Опасно \n' 
+                            korr = korr + 20
+                        fkolbm = f'\U00002696 ТБ: {bolshe} - ТМ: {menshe} \n'
+                        if summ >= 80:
+                            fsummpart = f'\U00002705 Кол. партий: {summ} - Уверенно\n'
+                        elif summ < 80 and summ > 70:
+                            fsummpart = f'\U00002611 Кол. партий: {summ} - Стабильно\n'
+                            korr = korr + 5
+                        elif summ < 70 and summ > 60:
+                            fsummpart = f'\U00002734 Кол. партий: {summ} - В норме\n'
+                            korr = korr + 10
+                        elif summ < 60 and summ > 50:
+                            fsummpart = f'\U000026A0 Кол. партий: {summ} - Минимум\n'
+                            korr = korr + 15
+                        elif summ < 50:
+                            fsummpart = f'\U000026D4 Кол. партий: {summ} - Опасно\n'
+                            korr = korr + 20
+    
+                        
+                        if razb >= 20:
+                            frazb = f'\U00002705 Разбежка: {razb} - Уверенно\n'
+                        elif razb < 20 and razb >= 15:
+                            frazb = f'\U00002611 Разбежка: {razb} - Стабильно\n'
+                            korr = korr + 3
+                        elif razb < 15 and razb >= 10:
+                            frazb = f'\U00002734 Разбежка: {razb} - В норме\n'
+                            korr = korr + 6
+                        elif razb < 10 and razb >= 5:
+                            frazb = f'\U000026A0 Разбежка: {razb} - Минимум\n'
+                            korr = korr + 9
+                        elif razb < 5 and razb >= 3:
+                            frazb = f'\U000026D4 Разбежка: {razb} - Опасно\n'
+                            korr = korr + 12
+                        elif razb < 3 :
+                            frazb = f'\U000026D4 Разбежка: {razb} - Критически опасно\n'
+                            korr = korr + 20
+                        fver = f'\U0001F4CB Пром. вероятность: {ver}\n'
+                        fschet = f'\U0001F4CB Просчет: {schet}\n'
+                        fpro = f'\U0001F4CB Процент партии: {pro}\n'
+                        fprog = f'Прогноз:\n'
+                        fprov = f'Стабильность:\n'
+                        prorazb = abs(pro - schet)
+                        if abs(pro - schet) > 20:
+                            fprorazb = f'\U00002705 Разбежка просчета: {prorazb} \U00002705 - Уверенно\n'
+                        elif (abs(pro - schet) < 20) and (abs(pro - schet) > 15):
+                            fprorazb = f'\U00002611 Разбежка просчета: {prorazb} \U00002611 - Стабильно\n'
+                            korr = korr + 5
+                        elif (abs(pro - schet) < 15) and (abs(pro - schet) > 10):
+                            fprorazb = f'\U00002734 Разбежка просчета: {prorazb} \U00002734 - В норме\n'
+                            korr = korr + 10
+                        elif (abs(pro - schet) < 10) and (abs(pro - schet) > 5):
+                            fprorazb = f'\U000026A0 Разбежка просчета: {prorazb} \U000026A0 - Минимум\n'
+                            korr = korr + 15
+                        elif (abs(pro - schet) < 5) and (abs(pro - schet) >= 0):
+                            fprorazb = f'\U000026D4 Разбежка просчета: {prorazb} \U000026D4 - Опасно\n'
+                            korr = korr + 20
+                        fdeli = f'\U0001F4CB Относительно партии: {deli}\n'
+                        if itog < 0.5:
+                            fitog = f'\U0001F4CA Годность: {itog} - \U00002705\n'
+                        elif itog > 0.5:
+                            fitog = f'\U0001F4CA Годность: {itog} - \U000026D4\n'
+                        fprohod = f'\U0001F4CA Проходимость: {prohod} %\n'
+                        fprob = f'\n'
+                        korrver = prohod - korr
+                        if korrver > 60:
+                            fkorrver = f'\U0001F4CA Скоррект.вер.: {korrver} % \U00002705\n'
+                        elif korrver < 60:
+                            fkorrver = f'\U0001F4CA Скоррект.вер.: {korrver} % \U000026D4\n'
+                        
+                        if (bolshe - menshe) > 0:
+                            fstavka = 'ТМ 18.5\n'
+                        else:
+                            fstavka = 'ТБ 18.5\n'
+                        
+                        if deli < 2:
+                            fzahod = 'Можно играть 1,2 партии\n'
+                        else:
+                            fzahod = 'Можно играть 3,4 партии\n'
+                            
+                        # print(id_ev)
+                        
+                        med = f'\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\n'
+                        mess = fdate + fliga + fteams + fprob +fkolgame + fkolbm + fsummpart + frazb + fver + fschet + fpro + fdeli + fprob +fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver
+                        messchannel = med + fdate + fliga + fteams + frazb + fprob + fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver
+                        # message = message + mess  
+                        # bot.send_message(message.chat.id, text=mess,parse_mode="HTML")        
+                        send_telegram(mess)
+                        if (korrver > 50 and razb >= 10 and prorazb > 10) or korrver > 70:
+                            send_channel(messchannel)
+                        if (prorazb > 20 and itog < 0.5 and prohod > 70 and korrver < 70):
+                            med = f'\U0001F948\U0001F948\U0001F948\U0001F948\U0001F948\U0001F948\U0001F948\U0001F948\U0001F948\U0001F948\n'
+                            messchannel = med + fdate + fliga + fteams + frazb + fprob + fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver
+                            send_channel(messchannel)
+                        else:
+                            if korrver < 10 and prorazb < 5:
+                                finv = f'\U0000267B Инверсия ставки \n'
+                                if fstavka == 'ТМ 18.5\n':
+                                    fstavkainv == 'Инв. ставка : ТБ 18.5\n'
+                                if fstavka == 'ТБ 18.5\n':
+                                    fstavkainv == 'Инв. ставка : ТМ 18.5\n'
+                                med = f'\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\n'
+                                messchannelinv = med + fdate + fliga + fteams + frazb + fprob + fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver + finv + fstavkainv
+                                send_channel(messchannelinv)
+                    except:
+                        pass
+                    
                 
     send_telegram('Поиск завершен')
 #         # print('send')            
