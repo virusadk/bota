@@ -270,7 +270,14 @@ def main():
                     if (korrver > 50 and razb >= 10 and prorazb > 10) or korrver > 70:
                         send_channel(messchannel)
                     else:
-                        pass
+                        if prorazb < 3 and korrver < 20 and razb < 5:
+                            finv = f'\U0000267B Инверсия ставки \n'
+                            if fstavka == 'ТМ 18.5\n':
+                                fstavkainv == 'Инв. ставка : ТБ 18.5\n'
+                            if fstavka == 'ТБ 18.5\n':
+                                fstavkainv == 'Инв. ставка : ТМ 18.5\n'
+                            messchannelinv = fdate + fliga + fteams + frazb + fprob + fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver + finv + fstavkainv
+                            send_channel(messchannelinv)
                 except:
                     pass
                 
