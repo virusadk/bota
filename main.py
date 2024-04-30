@@ -261,13 +261,17 @@ def main():
                         
                     # print(id_ev)
                     
-   
+                    med = f'\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\n'
                     mess = fdate + fliga + fteams + fprob +fkolgame + fkolbm + fsummpart + frazb + fver + fschet + fpro + fdeli + fprob +fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver
-                    messchannel = fdate + fliga + fteams + frazb + fprob + fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver
+                    messchannel = med + fdate + fliga + fteams + frazb + fprob + fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver
                     # message = message + mess  
                     # bot.send_message(message.chat.id, text=mess,parse_mode="HTML")        
                     send_telegram(mess)
                     if (korrver > 50 and razb >= 10 and prorazb > 10) or korrver > 70:
+                        send_channel(messchannel)
+                    if (prorazb > 20 and itog < 0.5 and prohod > 70 and korrver < 70):
+                        med = f'\U0001F948\U0001F948\U0001F948\U0001F948\U0001F948\U0001F948\U0001F948\U0001F948\U0001F948\U0001F948\n'
+                        messchannel = med + fdate + fliga + fteams + frazb + fprob + fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver
                         send_channel(messchannel)
                     else:
                         if korrver < 10 and prorazb < 5:
@@ -276,7 +280,8 @@ def main():
                                 fstavkainv == 'Инв. ставка : ТБ 18.5\n'
                             if fstavka == 'ТБ 18.5\n':
                                 fstavkainv == 'Инв. ставка : ТМ 18.5\n'
-                            messchannelinv = fdate + fliga + fteams + frazb + fprob + fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver + finv + fstavkainv
+                            med = f'\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\n'
+                            messchannelinv = med + fdate + fliga + fteams + frazb + fprob + fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver + finv + fstavkainv
                             send_channel(messchannelinv)
                 except:
                     pass
