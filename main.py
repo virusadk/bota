@@ -286,7 +286,7 @@ def main():
                             #     med = f'\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\n'
                                 messchannelinv = med + fdate + fliga + fteams + frazb + fprob + fprog + fstavka + fzahod + fpart + fprob + fprov + fprorazb + fitog + fprohod + fkorrver + fstavkainv
                                 send_channel(messchannelinv)
-                            pass
+                            
                     except:
                         pass
                     
