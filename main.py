@@ -280,9 +280,9 @@ def main():
                             # if korrver < 10 and prorazb < 5:
                             #     finv = f'\U0000267B Инверсия ставки \n'
                             if fstavka == 'ТМ 18.5\n':
-                                fstavkainv == 'Инв. ставка : ТБ 18.5\n'
+                                fstavkainv = f'Инв. ставка : ТБ 18.5\n'
                             if fstavka == 'ТБ 18.5\n':
-                                fstavkainv == 'Инв. ставка : ТМ 18.5\n'
+                                fstavkainv = f'Инв. ставка : ТМ 18.5\n'
                             #     med = f'\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\n'
                             messchannelinv = mess + fpart + fstavkainv
                             send_channel(messchannelinv)
