@@ -284,7 +284,7 @@ def main():
                             if fstavka == 'ТБ 18.5\n':
                                 fstavkainv == 'Инв. ставка : ТМ 18.5\n'
                             #     med = f'\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\n'
-                            messchannelinv = med + fdate + fliga + fteams + frazb + fprob + fprog + fstavka + fzahod + fpart + fprob + fprov + fprorazb + fitog + fprohod + fkorrver + fstavkainv
+                            messchannelinv = mess + fpart + fstavkainv
                             send_channel(messchannelinv)
                             
                     except:
