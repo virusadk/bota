@@ -275,7 +275,7 @@ def main():
                         
                         else:
                             part = deli * itog
-                            fpart = 'Уточнение партии: {part}\n'
+                            fpart = f'Уточнение партии: {part}\n'
                             fstavkainv = ''
                             # if korrver < 10 and prorazb < 5:
                             #     finv = f'\U0000267B Инверсия ставки \n'
