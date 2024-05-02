@@ -270,22 +270,22 @@ def main():
                         # message = message + mess  
                         # bot.send_message(message.chat.id, text=mess,parse_mode="HTML")        
                         send_telegram(mess)
-                        if (razb >= 10) and (itog < 0.5):
-                            send_channel(messchannel)
-                        # if (prorazb > 20 and itog < 0.5 and prohod > 70 and korrver < 70):
-                        #     med = f'\U0001F948\U0001F948\U0001F948\U0001F948\U0001F948\U0001F948\U0001F948\U0001F948\U0001F948\U0001F948\n'
-                        #     messchannel = med + fdate + fliga + fteams + frazb + fprob + fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver
-                        #     send_channel(messchannel)
+                        if (kol > 5) and (razb > 5) and (summ > 50) and (prorazb > 5) and (itog < 0.5):
+                            send_channel(mess)
+                        
                         else:
+                            part = deli * itog
+                            fpart = 'Уточнение партии: {part}\n'
+                            fstavkainv = ''
                             # if korrver < 10 and prorazb < 5:
                             #     finv = f'\U0000267B Инверсия ставки \n'
-                            #     if fstavka == 'ТМ 18.5\n':
-                            #         fstavkainv == 'Инв. ставка : ТБ 18.5\n'
-                            #     if fstavka == 'ТБ 18.5\n':
-                            #         fstavkainv == 'Инв. ставка : ТМ 18.5\n'
+                            if fstavka == 'ТМ 18.5\n':
+                                fstavkainv == 'Инв. ставка : ТБ 18.5\n'
+                            if fstavka == 'ТБ 18.5\n':
+                                fstavkainv == 'Инв. ставка : ТМ 18.5\n'
                             #     med = f'\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\n'
-                            #     messchannelinv = med + fdate + fliga + fteams + frazb + fprob + fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver + finv + fstavkainv
-                            #     send_channel(messchannelinv)
+                                messchannelinv = med + fdate + fliga + fteams + frazb + fprob + fprog + fstavka + fzahod + fpart + fprob + fprov + fprorazb + fitog + fprohod + fkorrver + fstavkainv
+                                send_channel(messchannelinv)
                             pass
                     except:
                         pass
