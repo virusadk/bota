@@ -294,7 +294,7 @@ def main():
                                 if 5 >= utoch > 4:
                                     utochpart = f'Партия макс. вер.: 5 ({utoch})\n'
                                 
-                                messchannelinv = mess + fpart + fstavkainv + ivprov + utochpart
+                                messchannelinv = mess + fpart + fstavkainv + invprov + utochpart
                                 
                                 send_channel(messchannelinv)
                             else:
@@ -309,7 +309,7 @@ def main():
                                     utochpart = f'Партия макс. вер.: 4 ({utoch})\n'
                                 if 5 >= utoch > 4:
                                     utochpart = f'Партия макс. вер.: 5 ({utoch})\n'
-                                mess1 = mess + ivprov + utochpart
+                                mess1 = mess + invprov + utochpart
                                 send_channel(mess1)
                         
                         else:
@@ -335,7 +335,7 @@ def main():
                                 utochpart = f'Партия макс. вер.: 4 ({utoch})\n'
                             if 5 >= utoch > 4:
                                 utochpart = f'Партия макс. вер.: 5 ({utoch})\n'
-                            mess2 = messchannelinv + ivprov + utochpart
+                            mess2 = messchannelinv + invprov + utochpart
                             
                             send_channel(mess2)
                             
