@@ -297,7 +297,7 @@ def main():
                                         utochpart = f'Партия макс. вер.: 5 ({utoch})\n'
                                     start = ver / korrver * (prohod / 100) * part * itog
                                     fstart = f'Стартуем с {start} партии\n'
-                                    uver = start * part
+                                    uver = start * part * utochpart
                                     fuver = f'Стабильность: {uver}'
                                     messchannelinv = mess + fpart + fstavkainv + invprov + utochpart + fstart + fuver
                                     
@@ -316,7 +316,7 @@ def main():
                                         utochpart = f'Партия макс. вер.: 5 ({utoch})\n'
                                     start = ver / korrver * (prohod / 100) * part * itog
                                     fstart = f'Стартуем с {start} партии\n'
-                                    uver = start * part
+                                    uver = start * part * utochpart
                                     fuver = f'Стабильность: {uver}'
                                     mess1 = mess + invprov + utochpart + fstart + fuver
                                     send_channel(mess1)
@@ -346,7 +346,7 @@ def main():
                                     utochpart = f'Партия макс. вер.: 5 ({utoch})\n'
                                 start = ver / korrver *(prohod / 100) * part * itog
                                 fstart = f'Стартуем с {start} партии\n'
-                                uver = start * part
+                                uver = start * part * utochpart
                                 fuver = f'Стабильность: {uver}'
                                 mess2 = messchannelinv + invprov + utochpart + fstart + fuver
                                 
