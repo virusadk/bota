@@ -269,15 +269,9 @@ def main():
                         messchannel = med + fdate + fliga + fteams + frazb + fprob + fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver
                         # message = message + mess  
                         # bot.send_message(message.chat.id, text=mess,parse_mode="HTML")        
-                        # send_telegram(mess)
-                        
-                        
+                        # send_telegram(mess)                       
                         bot.send_message(message.chat.id, text=mess)
-                        # idmes = message.message.id
-                        # fidmes =f'{idmes}\n'
-                        # bot.send_message(message.chat.id, text=fidmes)
-                        if ver > 60:
-                            
+                        if ver > 60:                            
                             if (kol > 5) and (razb > 5) and (summ > 50) and (prorazb > 5) and (itog < 0.5):
                                 if prorazb < schet:
                                     part = deli * itog
