@@ -297,7 +297,9 @@ def main():
                                         utochpart = f'Партия макс. вер.: 5 ({utoch})\n'
                                     start = ver / korrver * (prohod / 100) * part * itog
                                     fstart = f'Стартуем с {start} партии\n'
-                                    messchannelinv = mess + fpart + fstavkainv + invprov + utochpart + fstart
+                                    uver = start * part
+                                    fuver = f'Стабильность: {uver}'
+                                    messchannelinv = mess + fpart + fstavkainv + invprov + utochpart + fstart + fuver
                                     
                                     send_channel(messchannelinv)
                                 else:
@@ -314,7 +316,9 @@ def main():
                                         utochpart = f'Партия макс. вер.: 5 ({utoch})\n'
                                     start = ver / korrver * (prohod / 100) * part * itog
                                     fstart = f'Стартуем с {start} партии\n'
-                                    mess1 = mess + invprov + utochpart + fstart
+                                    uver = start * part
+                                    fuver = f'Стабильность: {uver}'
+                                    mess1 = mess + invprov + utochpart + fstart + fuver
                                     send_channel(mess1)
                             
                             else:
@@ -342,7 +346,9 @@ def main():
                                     utochpart = f'Партия макс. вер.: 5 ({utoch})\n'
                                 start = ver / korrver *(prohod / 100) * part * itog
                                 fstart = f'Стартуем с {start} партии\n'
-                                mess2 = messchannelinv + invprov + utochpart + fstart
+                                uver = start * part
+                                fuver = f'Стабильность: {uver}'
+                                mess2 = messchannelinv + invprov + utochpart + fstart + fuver
                                 
                                 send_channel(mess2)
                         else:
