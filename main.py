@@ -270,6 +270,9 @@ def main():
                         # message = message + mess  
                         # bot.send_message(message.chat.id, text=mess,parse_mode="HTML")        
                         # send_telegram(mess)
+                        idmes = message.message_id
+                        fidmes =f'{idmes}\n'
+                        mess = mess + fidmes
                         bot.send_message(message.chat.id, text=mess)
                         if ver > 60:
                             
