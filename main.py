@@ -273,9 +273,9 @@ def main():
                         
                         
                         bot.send_message(message.chat.id, text=mess)
-                        idmes = message.message.id
-                        fidmes =f'{idmes}\n'
-                        bot.send_message(message.chat.id, text=fidmes)
+                        # idmes = message.message.id
+                        # fidmes =f'{idmes}\n'
+                        # bot.send_message(message.chat.id, text=fidmes)
                         if ver > 60:
                             
                             if (kol > 5) and (razb > 5) and (summ > 50) and (prorazb > 5) and (itog < 0.5):
