@@ -265,8 +265,11 @@ def main():
                         # print(id_ev)
                         utoch = summ / razb * deli * itog
                         med = f'\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\n'
-                        mess = fdate + fliga + fteams + fprob +fkolgame + fkolbm + fsummpart + frazb + fver + fschet + fpro + fdeli + fprob +fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver
-                        messchannel = med + fdate + fliga + fteams + frazb + fprob + fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver
+                        try:
+                            mess = fdate + fliga + fteams + fprob +fkolgame + fkolbm + fsummpart + frazb + fver + fschet + fpro + fdeli + fprob +fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver
+                            messchannel = med + fdate + fliga + fteams + frazb + fprob + fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver
+                        except:
+                            pass
                         # message = message + mess  
                         # bot.send_message(message.chat.id, text=mess,parse_mode="HTML")    
                         part = deli * itog
