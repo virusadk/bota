@@ -269,7 +269,39 @@ def main():
                         messchannel = med + fdate + fliga + fteams + frazb + fprob + fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver
                         # message = message + mess  
                         # bot.send_message(message.chat.id, text=mess,parse_mode="HTML")    
-                        send_telegram(mes)
+                        part = deli * itog
+                        fpart = f'Уточнение партии: {part}\n'
+                        fstavkainv = ''
+                        # if korrver < 10 and prorazb < 5:
+                        #     finv = f'\U0000267B Инверсия ставки \n'
+                        if fstavka == 'ТМ 18.5\n':
+                            fstavkainv = f'Инв. ставка : ТБ 18.5\n'
+                        if fstavka == 'ТБ 18.5\n':
+                            fstavkainv = f'Инв. ставка : ТМ 18.5\n'
+                        #     med = f'\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\n'
+                        messchannelinv = mess + fpart + fstavkainv
+                        invprov = f'Инвертировано ранее\n'
+                        if utoch <= 1 or utoch > 5:
+                            fg = 1
+                            utochpart = f'Партия макс. вер.: 1 ({utoch})\n'
+                        if 2 >= utoch > 1:
+                            fg = 2
+                            utochpart = f'Партия макс. вер.: 2 ({utoch})\n'
+                        if 3 >= utoch > 2:
+                            fg = 3
+                            utochpart = f'Партия макс. вер.: 3 ({utoch})\n'
+                        if 4 >= utoch > 3:
+                            fg = 4
+                            utochpart = f'Партия макс. вер.: 4 ({utoch})\n'
+                        if 5 >= utoch > 4:
+                            fg = 5
+                            utochpart = f'Партия макс. вер.: 5 ({utoch})\n'
+                        start = ver / korrver *(prohod / 100) * part * itog
+                        fstart = f'Стартуем с {start} партии\n'
+                        uver = start * part * fg
+                        fuver = f'Стабильность: {uver}'
+                        mess = mess + invprov + utochpart + fstart + fuver
+                        send_telegram(mess)                       
                         # bot.send_message(message.chat.id, text=mess)
                         if ver > 60:                            
                             if (kol > 5) and (razb > 5) and (summ > 50) and (prorazb > 5) and (itog < 0.5):
