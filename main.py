@@ -315,7 +315,7 @@ def main():
                             for item in file.readlines():
                                 line = item.strip()
                                     # print(line)
-                                idid = line.split('-')[0]
+                                idid = line
                                 if id_ev == idid:
                                     print('Событие уже отправлено')
                                 else:               
