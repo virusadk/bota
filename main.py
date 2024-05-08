@@ -168,119 +168,158 @@ def main():
                         korr = 0
                         print(name_at)
                         id_ev = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['id_ev']
-                        with open('send.txt','r') as file:
+                        # with open('send.txt','r') as file:
                                     
-                            for item in file.readlines():
-                                line = item.strip()
-                                    # print(line)
-                                idid = line.split('-')[0]
-                                if id_ev == idid:
-                                    print('Событие уже отправлено')
-                                else:
-                                    fdate = f'\U0001F4C6 {date_ev_str} \n'
-                                    fliga = f'\U0001F3D3 {liga}\n' 
-                                    fteams = f'\U0001F9D1 {name_ht} - {name_at} \n' 
-                                    if kol == 20:
-                                        fkolgame = f'\U00002705 Кол. игр: {kol} - Уверенно \n' 
-                                    elif (kol < 20) and (kol >= 15) :
-                                        fkolgame = f'\U00002611 Кол. игр: {kol} - Стабильно \n' 
-                                        korr = korr + 5
-                                    elif (kol < 15) and (kol >= 10) :
-                                        fkolgame = f'\U00002734 Кол. игр: {kol} - В норме \n' 
-                                        korr = korr + 10
-                                    elif (kol < 10) and (kol >= 5) :
-                                        fkolgame = f'\U000026A0 Кол. игр: {kol} - Минимум \n' 
-                                        korr = korr + 15
-                                    elif (kol < 5) and (kol >= 0) :
-                                        fkolgame = f'\U000026D4 Кол. игр: {kol} - Опасно \n' 
-                                        korr = korr + 20
-                                    fkolbm = f'\U00002696 ТБ: {bolshe} - ТМ: {menshe} \n'
-                                    if summ >= 80:
-                                        fsummpart = f'\U00002705 Кол. партий: {summ} - Уверенно\n'
-                                    elif summ < 80 and summ > 70:
-                                        fsummpart = f'\U00002611 Кол. партий: {summ} - Стабильно\n'
-                                        korr = korr + 5
-                                    elif summ < 70 and summ > 60:
-                                        fsummpart = f'\U00002734 Кол. партий: {summ} - В норме\n'
-                                        korr = korr + 10
-                                    elif summ < 60 and summ > 50:
-                                        fsummpart = f'\U000026A0 Кол. партий: {summ} - Минимум\n'
-                                        korr = korr + 15
-                                    elif summ < 50:
-                                        fsummpart = f'\U000026D4 Кол. партий: {summ} - Опасно\n'
-                                        korr = korr + 20
-                
-                                    
-                                    if razb >= 20:
-                                        frazb = f'\U00002705 Разбежка: {razb} - Уверенно\n'
-                                    elif razb < 20 and razb >= 15:
-                                        frazb = f'\U00002611 Разбежка: {razb} - Стабильно\n'
-                                        korr = korr + 3
-                                    elif razb < 15 and razb >= 10:
-                                        frazb = f'\U00002734 Разбежка: {razb} - В норме\n'
-                                        korr = korr + 6
-                                    elif razb < 10 and razb >= 5:
-                                        frazb = f'\U000026A0 Разбежка: {razb} - Минимум\n'
-                                        korr = korr + 9
-                                    elif razb < 5 and razb >= 3:
-                                        frazb = f'\U000026D4 Разбежка: {razb} - Опасно\n'
-                                        korr = korr + 12
-                                    elif razb < 3 :
-                                        frazb = f'\U000026D4 Разбежка: {razb} - Критически опасно\n'
-                                        korr = korr + 20
-                                    fver = f'\U0001F4CB Пром. вероятность: {ver}\n'
-                                    fschet = f'\U0001F4CB Просчет: {schet}\n'
-                                    fpro = f'\U0001F4CB Процент партии: {pro}\n'
-                                    fprog = f'Прогноз:\n'
-                                    fprov = f'Стабильность:\n'
-                                    prorazb = abs(pro - schet)
-                                    if abs(pro - schet) > 20:
-                                        fprorazb = f'\U00002705 Разбежка просчета: {prorazb} \U00002705 - Уверенно\n'
-                                    elif (abs(pro - schet) < 20) and (abs(pro - schet) > 15):
-                                        fprorazb = f'\U00002611 Разбежка просчета: {prorazb} \U00002611 - Стабильно\n'
-                                        korr = korr + 5
-                                    elif (abs(pro - schet) < 15) and (abs(pro - schet) > 10):
-                                        fprorazb = f'\U00002734 Разбежка просчета: {prorazb} \U00002734 - В норме\n'
-                                        korr = korr + 10
-                                    elif (abs(pro - schet) < 10) and (abs(pro - schet) > 5):
-                                        fprorazb = f'\U000026A0 Разбежка просчета: {prorazb} \U000026A0 - Минимум\n'
-                                        korr = korr + 15
-                                    elif (abs(pro - schet) < 5) and (abs(pro - schet) >= 0):
-                                        fprorazb = f'\U000026D4 Разбежка просчета: {prorazb} \U000026D4 - Опасно\n'
-                                        korr = korr + 20
-                                    fdeli = f'\U0001F4CB Относительно партии: {deli}\n'
-                                    if itog < 0.5:
-                                        fitog = f'\U0001F4CA Годность: {itog} - \U00002705\n'
-                                    elif itog > 0.5:
-                                        fitog = f'\U0001F4CA Годность: {itog} - \U000026D4\n'
-                                    fprohod = f'\U0001F4CA Проходимость: {prohod} %\n'
-                                    fprob = f'\n'
-                                    korrver = prohod - korr
-                                    if korrver > 60:
-                                        fkorrver = f'\U0001F4CA Скоррект.вер.: {korrver} % \U00002705\n'
-                                    elif korrver < 60:
-                                        fkorrver = f'\U0001F4CA Скоррект.вер.: {korrver} % \U000026D4\n'
-                                    
-                                    if (bolshe - menshe) > 0:
-                                        fstavka = 'ТМ 18.5\n'
-                                    else:
-                                        fstavka = 'ТБ 18.5\n'
-                                    
-                                    if deli < 2:
-                                        fzahod = 'Можно играть 1,2 партии\n'
-                                    else:
-                                        fzahod = 'Можно играть 3,4 партии\n'
-                                        
-                                    # print(id_ev)
-                                    utoch = summ / razb * deli * itog
-                                    med = f'\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\n'
-                                    try:
-                                        mess = fdate + fliga + fteams + fprob +fkolgame + fkolbm + fsummpart + frazb + fver + fschet + fpro + fdeli + fprob +fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver
-                                        messchannel = med + fdate + fliga + fteams + frazb + fprob + fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver
-                                    except:
-                                        pass
-                                    # message = message + mess  
-                                    # bot.send_message(message.chat.id, text=mess,parse_mode="HTML")    
+                        #     for item in file.readlines():
+                        #         line = item.strip()
+                        #             # print(line)
+                        #         idid = line.split('-')[0]
+                        #         if id_ev == idid:
+                        #             print('Событие уже отправлено')
+                        #         else:
+                        fdate = f'\U0001F4C6 {date_ev_str} \n'
+                        fliga = f'\U0001F3D3 {liga}\n' 
+                        fteams = f'\U0001F9D1 {name_ht} - {name_at} \n' 
+                        if kol == 20:
+                            fkolgame = f'\U00002705 Кол. игр: {kol} - Уверенно \n' 
+                        elif (kol < 20) and (kol >= 15) :
+                            fkolgame = f'\U00002611 Кол. игр: {kol} - Стабильно \n' 
+                            korr = korr + 5
+                        elif (kol < 15) and (kol >= 10) :
+                            fkolgame = f'\U00002734 Кол. игр: {kol} - В норме \n' 
+                            korr = korr + 10
+                        elif (kol < 10) and (kol >= 5) :
+                            fkolgame = f'\U000026A0 Кол. игр: {kol} - Минимум \n' 
+                            korr = korr + 15
+                        elif (kol < 5) and (kol >= 0) :
+                            fkolgame = f'\U000026D4 Кол. игр: {kol} - Опасно \n' 
+                            korr = korr + 20
+                        fkolbm = f'\U00002696 ТБ: {bolshe} - ТМ: {menshe} \n'
+                        if summ >= 80:
+                            fsummpart = f'\U00002705 Кол. партий: {summ} - Уверенно\n'
+                        elif summ < 80 and summ > 70:
+                            fsummpart = f'\U00002611 Кол. партий: {summ} - Стабильно\n'
+                            korr = korr + 5
+                        elif summ < 70 and summ > 60:
+                            fsummpart = f'\U00002734 Кол. партий: {summ} - В норме\n'
+                            korr = korr + 10
+                        elif summ < 60 and summ > 50:
+                            fsummpart = f'\U000026A0 Кол. партий: {summ} - Минимум\n'
+                            korr = korr + 15
+                        elif summ < 50:
+                            fsummpart = f'\U000026D4 Кол. партий: {summ} - Опасно\n'
+                            korr = korr + 20
+    
+                        
+                        if razb >= 20:
+                            frazb = f'\U00002705 Разбежка: {razb} - Уверенно\n'
+                        elif razb < 20 and razb >= 15:
+                            frazb = f'\U00002611 Разбежка: {razb} - Стабильно\n'
+                            korr = korr + 3
+                        elif razb < 15 and razb >= 10:
+                            frazb = f'\U00002734 Разбежка: {razb} - В норме\n'
+                            korr = korr + 6
+                        elif razb < 10 and razb >= 5:
+                            frazb = f'\U000026A0 Разбежка: {razb} - Минимум\n'
+                            korr = korr + 9
+                        elif razb < 5 and razb >= 3:
+                            frazb = f'\U000026D4 Разбежка: {razb} - Опасно\n'
+                            korr = korr + 12
+                        elif razb < 3 :
+                            frazb = f'\U000026D4 Разбежка: {razb} - Критически опасно\n'
+                            korr = korr + 20
+                        fver = f'\U0001F4CB Пром. вероятность: {ver}\n'
+                        fschet = f'\U0001F4CB Просчет: {schet}\n'
+                        fpro = f'\U0001F4CB Процент партии: {pro}\n'
+                        fprog = f'Прогноз:\n'
+                        fprov = f'Стабильность:\n'
+                        prorazb = abs(pro - schet)
+                        if abs(pro - schet) > 20:
+                            fprorazb = f'\U00002705 Разбежка просчета: {prorazb} \U00002705 - Уверенно\n'
+                        elif (abs(pro - schet) < 20) and (abs(pro - schet) > 15):
+                            fprorazb = f'\U00002611 Разбежка просчета: {prorazb} \U00002611 - Стабильно\n'
+                            korr = korr + 5
+                        elif (abs(pro - schet) < 15) and (abs(pro - schet) > 10):
+                            fprorazb = f'\U00002734 Разбежка просчета: {prorazb} \U00002734 - В норме\n'
+                            korr = korr + 10
+                        elif (abs(pro - schet) < 10) and (abs(pro - schet) > 5):
+                            fprorazb = f'\U000026A0 Разбежка просчета: {prorazb} \U000026A0 - Минимум\n'
+                            korr = korr + 15
+                        elif (abs(pro - schet) < 5) and (abs(pro - schet) >= 0):
+                            fprorazb = f'\U000026D4 Разбежка просчета: {prorazb} \U000026D4 - Опасно\n'
+                            korr = korr + 20
+                        fdeli = f'\U0001F4CB Относительно партии: {deli}\n'
+                        if itog < 0.5:
+                            fitog = f'\U0001F4CA Годность: {itog} - \U00002705\n'
+                        elif itog > 0.5:
+                            fitog = f'\U0001F4CA Годность: {itog} - \U000026D4\n'
+                        fprohod = f'\U0001F4CA Проходимость: {prohod} %\n'
+                        fprob = f'\n'
+                        korrver = prohod - korr
+                        if korrver > 60:
+                            fkorrver = f'\U0001F4CA Скоррект.вер.: {korrver} % \U00002705\n'
+                        elif korrver < 60:
+                            fkorrver = f'\U0001F4CA Скоррект.вер.: {korrver} % \U000026D4\n'
+                        
+                        if (bolshe - menshe) > 0:
+                            fstavka = 'ТМ 18.5\n'
+                        else:
+                            fstavka = 'ТБ 18.5\n'
+                        
+                        if deli < 2:
+                            fzahod = 'Можно играть 1,2 партии\n'
+                        else:
+                            fzahod = 'Можно играть 3,4 партии\n'
+                            
+                        # print(id_ev)
+                        utoch = summ / razb * deli * itog
+                        med = f'\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\n'
+                        try:
+                            mess = fdate + fliga + fteams + fprob +fkolgame + fkolbm + fsummpart + frazb + fver + fschet + fpro + fdeli + fprob +fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver
+                            messchannel = med + fdate + fliga + fteams + frazb + fprob + fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver
+                        except:
+                            pass
+                        # message = message + mess  
+                        # bot.send_message(message.chat.id, text=mess,parse_mode="HTML")    
+                        part = deli * itog
+                        fpart = f'Уточнение партии: {part}\n'
+                        fstavkainv = ''
+                        # if korrver < 10 and prorazb < 5:
+                        #     finv = f'\U0000267B Инверсия ставки \n'
+                        if fstavka == 'ТМ 18.5\n':
+                            fstavkainv = f'Инв. ставка : ТБ 18.5\n'
+                        if fstavka == 'ТБ 18.5\n':
+                            fstavkainv = f'Инв. ставка : ТМ 18.5\n'
+                        #     med = f'\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\n'
+                        messchannelinv = mess + fpart + fstavkainv
+                        invprov = f'Инвертировано ранее\n'
+                        if utoch <= 1 or utoch > 5:
+                            fg = 1
+                            utochpart = f'Партия макс. вер.: 1 ({utoch})\n'
+                        if 2 >= utoch > 1:
+                            fg = 2
+                            utochpart = f'Партия макс. вер.: 2 ({utoch})\n'
+                        if 3 >= utoch > 2:
+                            fg = 3
+                            utochpart = f'Партия макс. вер.: 3 ({utoch})\n'
+                        if 4 >= utoch > 3:
+                            fg = 4
+                            utochpart = f'Партия макс. вер.: 4 ({utoch})\n'
+                        if 5 >= utoch > 4:
+                            fg = 5
+                            utochpart = f'Партия макс. вер.: 5 ({utoch})\n'
+                        start = ver / korrver *(prohod / 100) * part * itog
+                        fstart = f'Стартуем с {start} партии\n'
+                        uver = start * part * fg
+                        fuver = f'Стабильность: {uver}'
+                        mess = mess + invprov + utochpart + fstart + fuver
+                        send_telegram(mess)                       
+                        # bot.send_message(message.chat.id, text=mess)
+                        if ver > 60:
+                            
+                                           
+                            if (kol > 5) and (razb > 5) and (summ > 50) and (prorazb > 5) and (itog < 0.5):
+                                if prorazb < schet:
                                     part = deli * itog
                                     fpart = f'Уточнение партии: {part}\n'
                                     fstavkainv = ''
@@ -291,8 +330,7 @@ def main():
                                     if fstavka == 'ТБ 18.5\n':
                                         fstavkainv = f'Инв. ставка : ТМ 18.5\n'
                                     #     med = f'\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\n'
-                                    messchannelinv = mess + fpart + fstavkainv
-                                    invprov = f'Инвертировано ранее\n'
+                                    invprov = f'Инвертировано по дополнительной проверке\n'
                                     if utoch <= 1 or utoch > 5:
                                         fg = 1
                                         utochpart = f'Партия макс. вер.: 1 ({utoch})\n'
@@ -308,134 +346,96 @@ def main():
                                     if 5 >= utoch > 4:
                                         fg = 5
                                         utochpart = f'Партия макс. вер.: 5 ({utoch})\n'
-                                    start = ver / korrver *(prohod / 100) * part * itog
+                                    start = ver / korrver * (prohod / 100) * part * itog
                                     fstart = f'Стартуем с {start} партии\n'
                                     uver = start * part * fg
                                     fuver = f'Стабильность: {uver}'
-                                    mess = mess + invprov + utochpart + fstart + fuver
-                                    send_telegram(mess)                       
-                                    # bot.send_message(message.chat.id, text=mess)
-                                    if ver > 60:
-                                        
-                                                       
-                                        if (kol > 5) and (razb > 5) and (summ > 50) and (prorazb > 5) and (itog < 0.5):
-                                            if prorazb < schet:
-                                                part = deli * itog
-                                                fpart = f'Уточнение партии: {part}\n'
-                                                fstavkainv = ''
-                                                # if korrver < 10 and prorazb < 5:
-                                                #     finv = f'\U0000267B Инверсия ставки \n'
-                                                if fstavka == 'ТМ 18.5\n':
-                                                    fstavkainv = f'Инв. ставка : ТБ 18.5\n'
-                                                if fstavka == 'ТБ 18.5\n':
-                                                    fstavkainv = f'Инв. ставка : ТМ 18.5\n'
-                                                #     med = f'\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\n'
-                                                invprov = f'Инвертировано по дополнительной проверке\n'
-                                                if utoch <= 1 or utoch > 5:
-                                                    fg = 1
-                                                    utochpart = f'Партия макс. вер.: 1 ({utoch})\n'
-                                                if 2 >= utoch > 1:
-                                                    fg = 2
-                                                    utochpart = f'Партия макс. вер.: 2 ({utoch})\n'
-                                                if 3 >= utoch > 2:
-                                                    fg = 3
-                                                    utochpart = f'Партия макс. вер.: 3 ({utoch})\n'
-                                                if 4 >= utoch > 3:
-                                                    fg = 4
-                                                    utochpart = f'Партия макс. вер.: 4 ({utoch})\n'
-                                                if 5 >= utoch > 4:
-                                                    fg = 5
-                                                    utochpart = f'Партия макс. вер.: 5 ({utoch})\n'
-                                                start = ver / korrver * (prohod / 100) * part * itog
-                                                fstart = f'Стартуем с {start} партии\n'
-                                                uver = start * part * fg
-                                                fuver = f'Стабильность: {uver}'
-                                                messchannelinv = mess + fpart + fstavkainv + invprov + utochpart + fstart + fuver
-                                                
-                                                send_channel(messchannelinv)
-                                                try:    
-                                                    with open('send.txt','a') as file:
-                                                        file.write(f'\n{id_ev}-F2')            
-                                                        file.close()
-                                                        print('Событие записано в db.txt') 
-                                                except:
-                                                    print('Невозможно записать в файл db.txt')
-                                            else:
-                                                invprov = f'Инвертирование не требуется\n'
-                                                if utoch <= 1 or utoch > 5:
-                                                    utochpart = f'Партия макс. вер.: 1 ({utoch})\n'
-                                                    fg = 1
-                                                if 2 >= utoch > 1:
-                                                    fg = 2
-                                                    utochpart = f'Партия макс. вер.: 2 ({utoch})\n'
-                                                if 3 >= utoch > 2:
-                                                    fg = 3
-                                                    utochpart = f'Партия макс. вер.: 3 ({utoch})\n'
-                                                if 4 >= utoch > 3:
-                                                    fg = 4
-                                                    utochpart = f'Партия макс. вер.: 4 ({utoch})\n'
-                                                if 5 >= utoch > 4:
-                                                    fg = 5
-                                                    utochpart = f'Партия макс. вер.: 5 ({utoch})\n'
-                                                start = ver / korrver * (prohod / 100) * part * itog
-                                                fstart = f'Стартуем с {start} партии\n'
-                                                uver = start * part * fg
-                                                fuver = f'Стабильность: {uver}'
-                                                mess1 = mess + invprov + utochpart + fstart + fuver
-                                                send_channel(mess1)
-                                                try:    
-                                                    with open('send.txt','a') as file:
-                                                        file.write(f'\n{id_ev}-F2')            
-                                                        file.close()
-                                                        print('Событие записано в db.txt') 
-                                                except:
-                                                    print('Невозможно записать в файл db.txt')
-                                        
-                                        else:
-                                            part = deli * itog
-                                            fpart = f'Уточнение партии: {part}\n'
-                                            fstavkainv = ''
-                                            # if korrver < 10 and prorazb < 5:
-                                            #     finv = f'\U0000267B Инверсия ставки \n'
-                                            if fstavka == 'ТМ 18.5\n':
-                                                fstavkainv = f'Инв. ставка : ТБ 18.5\n'
-                                            if fstavka == 'ТБ 18.5\n':
-                                                fstavkainv = f'Инв. ставка : ТМ 18.5\n'
-                                            #     med = f'\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\n'
-                                            messchannelinv = mess + fpart + fstavkainv
-                                            invprov = f'Инвертировано ранее\n'
-                                            if utoch <= 1 or utoch > 5:
-                                                fg = 1
-                                                utochpart = f'Партия макс. вер.: 1 ({utoch})\n'
-                                            if 2 >= utoch > 1:
-                                                fg = 2
-                                                utochpart = f'Партия макс. вер.: 2 ({utoch})\n'
-                                            if 3 >= utoch > 2:
-                                                fg = 3
-                                                utochpart = f'Партия макс. вер.: 3 ({utoch})\n'
-                                            if 4 >= utoch > 3:
-                                                fg = 4
-                                                utochpart = f'Партия макс. вер.: 4 ({utoch})\n'
-                                            if 5 >= utoch > 4:
-                                                fg = 5
-                                                utochpart = f'Партия макс. вер.: 5 ({utoch})\n'
-                                            start = ver / korrver *(prohod / 100) * part * itog
-                                            fstart = f'Стартуем с {start} партии\n'
-                                            uver = start * part * fg
-                                            fuver = f'Стабильность: {uver}'
-                                            mess2 = messchannelinv + invprov + utochpart + fstart + fuver
-                                            
-                                            send_channel(mess2)
-                                            try:    
-                                                with open('send.txt','a') as file:
-                                                    file.write(f'\n{id_ev}-F2')            
-                                                    file.close()
-                                                    print('Событие записано в db.txt') 
-                                            except:
-                                                print('Невозможно записать в файл db.txt')
-                                    else:
-                                        pass
-                    
+                                    messchannelinv = mess + fpart + fstavkainv + invprov + utochpart + fstart + fuver
+                                    
+                                    send_channel(messchannelinv)
+                                    # try:    
+                                    #     with open('send.txt','a') as file:
+                                    #         file.write(f'\n{id_ev}-F2')            
+                                    #         file.close()
+                                    #         print('Событие записано в db.txt') 
+                                    # except:
+                                    #     print('Невозможно записать в файл db.txt')
+                                else:
+                                    invprov = f'Инвертирование не требуется\n'
+                                    if utoch <= 1 or utoch > 5:
+                                        utochpart = f'Партия макс. вер.: 1 ({utoch})\n'
+                                        fg = 1
+                                    if 2 >= utoch > 1:
+                                        fg = 2
+                                        utochpart = f'Партия макс. вер.: 2 ({utoch})\n'
+                                    if 3 >= utoch > 2:
+                                        fg = 3
+                                        utochpart = f'Партия макс. вер.: 3 ({utoch})\n'
+                                    if 4 >= utoch > 3:
+                                        fg = 4
+                                        utochpart = f'Партия макс. вер.: 4 ({utoch})\n'
+                                    if 5 >= utoch > 4:
+                                        fg = 5
+                                        utochpart = f'Партия макс. вер.: 5 ({utoch})\n'
+                                    start = ver / korrver * (prohod / 100) * part * itog
+                                    fstart = f'Стартуем с {start} партии\n'
+                                    uver = start * part * fg
+                                    fuver = f'Стабильность: {uver}'
+                                    mess1 = mess + invprov + utochpart + fstart + fuver
+                                    send_channel(mess1)
+                                    # try:    
+                                    #     with open('send.txt','a') as file:
+                                    #         file.write(f'\n{id_ev}-F2')            
+                                    #         file.close()
+                                    #         print('Событие записано в db.txt') 
+                                    # except:
+                                    #     print('Невозможно записать в файл db.txt')
+                            
+                            else:
+                                part = deli * itog
+                                fpart = f'Уточнение партии: {part}\n'
+                                fstavkainv = ''
+                                # if korrver < 10 and prorazb < 5:
+                                #     finv = f'\U0000267B Инверсия ставки \n'
+                                if fstavka == 'ТМ 18.5\n':
+                                    fstavkainv = f'Инв. ставка : ТБ 18.5\n'
+                                if fstavka == 'ТБ 18.5\n':
+                                    fstavkainv = f'Инв. ставка : ТМ 18.5\n'
+                                #     med = f'\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\n'
+                                messchannelinv = mess + fpart + fstavkainv
+                                invprov = f'Инвертировано ранее\n'
+                                if utoch <= 1 or utoch > 5:
+                                    fg = 1
+                                    utochpart = f'Партия макс. вер.: 1 ({utoch})\n'
+                                if 2 >= utoch > 1:
+                                    fg = 2
+                                    utochpart = f'Партия макс. вер.: 2 ({utoch})\n'
+                                if 3 >= utoch > 2:
+                                    fg = 3
+                                    utochpart = f'Партия макс. вер.: 3 ({utoch})\n'
+                                if 4 >= utoch > 3:
+                                    fg = 4
+                                    utochpart = f'Партия макс. вер.: 4 ({utoch})\n'
+                                if 5 >= utoch > 4:
+                                    fg = 5
+                                    utochpart = f'Партия макс. вер.: 5 ({utoch})\n'
+                                start = ver / korrver *(prohod / 100) * part * itog
+                                fstart = f'Стартуем с {start} партии\n'
+                                uver = start * part * fg
+                                fuver = f'Стабильность: {uver}'
+                                mess2 = messchannelinv + invprov + utochpart + fstart + fuver
+                                
+                                send_channel(mess2)
+                                # try:    
+                                #     with open('send.txt','a') as file:
+                                #         file.write(f'\n{id_ev}-F2')            
+                                #         file.close()
+                                #         print('Событие записано в db.txt') 
+                                # except:
+                                #     print('Невозможно записать в файл db.txt')
+                        else:
+                            pass
+        
                                 
                     
                     
