@@ -168,6 +168,7 @@ def main():
                     korr = 0
                     print(name_at)
                     id_ev = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['id_ev']
+                    fid_ev = f'Идентификатор: {id_ev}\n'
                     
                     fdate = f'\U0001F4C6 {date_ev_str} \n'
                     fliga = f'\U0001F3D3 {liga}\n' 
@@ -267,8 +268,8 @@ def main():
                     utoch = summ / razb * deli * itog
                     med = f'\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\U0001F947\n'
                     try:
-                        mess = fdate + fliga + fteams + fprob +fkolgame + fkolbm + fsummpart + frazb + fver + fschet + fpro + fdeli + fprob +fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver
-                        messchannel = med + fdate + fliga + fteams + frazb + fprob + fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver
+                        mess = fid_ev + fdate + fliga + fteams + fprob +fkolgame + fkolbm + fsummpart + frazb + fver + fschet + fpro + fdeli + fprob +fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver
+                        messchannel = fid_ev + med + fdate + fliga + fteams + frazb + fprob + fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver
                     except:
                         pass
                     # message = message + mess  
