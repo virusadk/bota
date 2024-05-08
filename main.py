@@ -316,13 +316,7 @@ def main():
                                     if id_ev in idid:
                                         print('Событие уже отправлено')
                                     else:
-                                        try:    
-                                            with open('send.txt','a') as file:
-                                                file.write(f'\n{id_ev}-F2')            
-                                                file.close()
-                                                print('Событие записано в db.txt') 
-                                        except:
-                                            print('Невозможно записать в файл db.txt')   
+                                           
                                         if (kol > 5) and (razb > 5) and (summ > 50) and (prorazb > 5) and (itog < 0.5):
                                             if prorazb < schet:
                                                 part = deli * itog
@@ -358,6 +352,13 @@ def main():
                                                 messchannelinv = mess + fpart + fstavkainv + invprov + utochpart + fstart + fuver
                                                 
                                                 send_channel(messchannelinv)
+                                                try:    
+                                                    with open('send.txt','a') as file:
+                                                        file.write(f'\n{id_ev}-F2')            
+                                                        file.close()
+                                                        print('Событие записано в db.txt') 
+                                                except:
+                                                    print('Невозможно записать в файл db.txt')
                                             else:
                                                 invprov = f'Инвертирование не требуется\n'
                                                 if utoch <= 1 or utoch > 5:
@@ -381,6 +382,13 @@ def main():
                                                 fuver = f'Стабильность: {uver}'
                                                 mess1 = mess + invprov + utochpart + fstart + fuver
                                                 send_channel(mess1)
+                                                try:    
+                                                    with open('send.txt','a') as file:
+                                                        file.write(f'\n{id_ev}-F2')            
+                                                        file.close()
+                                                        print('Событие записано в db.txt') 
+                                                except:
+                                                    print('Невозможно записать в файл db.txt')
                                         
                                         else:
                                             part = deli * itog
@@ -417,6 +425,13 @@ def main():
                                             mess2 = messchannelinv + invprov + utochpart + fstart + fuver
                                             
                                             send_channel(mess2)
+                                            try:    
+                                                with open('send.txt','a') as file:
+                                                    file.write(f'\n{id_ev}-F2')            
+                                                    file.close()
+                                                    print('Событие записано в db.txt') 
+                                            except:
+                                                print('Невозможно записать в файл db.txt')
                         else:
                             pass
                         
