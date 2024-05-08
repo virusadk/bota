@@ -303,9 +303,67 @@ def main():
                         mess = mess + invprov + utochpart + fstart + fuver
                         send_telegram(mess)                       
                         # bot.send_message(message.chat.id, text=mess)
-                                                  
-                        if (kol > 5) and (razb > 5) and (summ > 50) and (prorazb > 5) and (itog < 0.5):
-                            if prorazb < schet:
+                        if ver > 60:                          
+                            if (kol > 5) and (razb > 5) and (summ > 50) and (prorazb > 5) and (itog < 0.5):
+                                if prorazb < schet:
+                                    part = deli * itog
+                                    fpart = f'Уточнение партии: {part}\n'
+                                    fstavkainv = ''
+                                    # if korrver < 10 and prorazb < 5:
+                                    #     finv = f'\U0000267B Инверсия ставки \n'
+                                    if fstavka == 'ТМ 18.5\n':
+                                        fstavkainv = f'Инв. ставка : ТБ 18.5\n'
+                                    if fstavka == 'ТБ 18.5\n':
+                                        fstavkainv = f'Инв. ставка : ТМ 18.5\n'
+                                    #     med = f'\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\n'
+                                    invprov = f'Инвертировано по дополнительной проверке\n'
+                                    if utoch <= 1 or utoch > 5:
+                                        fg = 1
+                                        utochpart = f'Партия макс. вер.: 1 ({utoch})\n'
+                                    if 2 >= utoch > 1:
+                                        fg = 2
+                                        utochpart = f'Партия макс. вер.: 2 ({utoch})\n'
+                                    if 3 >= utoch > 2:
+                                        fg = 3
+                                        utochpart = f'Партия макс. вер.: 3 ({utoch})\n'
+                                    if 4 >= utoch > 3:
+                                        fg = 4
+                                        utochpart = f'Партия макс. вер.: 4 ({utoch})\n'
+                                    if 5 >= utoch > 4:
+                                        fg = 5
+                                        utochpart = f'Партия макс. вер.: 5 ({utoch})\n'
+                                    start = ver / korrver * (prohod / 100) * part * itog
+                                    fstart = f'Стартуем с {start} партии\n'
+                                    uver = start * part * fg
+                                    fuver = f'Стабильность: {uver}'
+                                    messchannelinv = mess + fpart + fstavkainv + invprov + utochpart + fstart + fuver
+                                    
+                                    send_channel(messchannelinv)
+                                else:
+                                    invprov = f'Инвертирование не требуется\n'
+                                    if utoch <= 1 or utoch > 5:
+                                        utochpart = f'Партия макс. вер.: 1 ({utoch})\n'
+                                        fg = 1
+                                    if 2 >= utoch > 1:
+                                        fg = 2
+                                        utochpart = f'Партия макс. вер.: 2 ({utoch})\n'
+                                    if 3 >= utoch > 2:
+                                        fg = 3
+                                        utochpart = f'Партия макс. вер.: 3 ({utoch})\n'
+                                    if 4 >= utoch > 3:
+                                        fg = 4
+                                        utochpart = f'Партия макс. вер.: 4 ({utoch})\n'
+                                    if 5 >= utoch > 4:
+                                        fg = 5
+                                        utochpart = f'Партия макс. вер.: 5 ({utoch})\n'
+                                    start = ver / korrver * (prohod / 100) * part * itog
+                                    fstart = f'Стартуем с {start} партии\n'
+                                    uver = start * part * fg
+                                    fuver = f'Стабильность: {uver}'
+                                    mess1 = mess + invprov + utochpart + fstart + fuver
+                                    send_channel(mess1)
+                            
+                            else:
                                 part = deli * itog
                                 fpart = f'Уточнение партии: {part}\n'
                                 fstavkainv = ''
@@ -316,7 +374,8 @@ def main():
                                 if fstavka == 'ТБ 18.5\n':
                                     fstavkainv = f'Инв. ставка : ТМ 18.5\n'
                                 #     med = f'\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\n'
-                                invprov = f'Инвертировано по дополнительной проверке\n'
+                                messchannelinv = mess + fpart + fstavkainv
+                                invprov = f'Инвертировано ранее\n'
                                 if utoch <= 1 or utoch > 5:
                                     fg = 1
                                     utochpart = f'Партия макс. вер.: 1 ({utoch})\n'
@@ -332,72 +391,15 @@ def main():
                                 if 5 >= utoch > 4:
                                     fg = 5
                                     utochpart = f'Партия макс. вер.: 5 ({utoch})\n'
-                                start = ver / korrver * (prohod / 100) * part * itog
+                                start = ver / korrver *(prohod / 100) * part * itog
                                 fstart = f'Стартуем с {start} партии\n'
                                 uver = start * part * fg
                                 fuver = f'Стабильность: {uver}'
-                                messchannelinv = mess + fpart + fstavkainv + invprov + utochpart + fstart + fuver
+                                mess2 = messchannelinv + invprov + utochpart + fstart + fuver
                                 
-                                send_channel(messchannelinv)
-                            else:
-                                invprov = f'Инвертирование не требуется\n'
-                                if utoch <= 1 or utoch > 5:
-                                    utochpart = f'Партия макс. вер.: 1 ({utoch})\n'
-                                    fg = 1
-                                if 2 >= utoch > 1:
-                                    fg = 2
-                                    utochpart = f'Партия макс. вер.: 2 ({utoch})\n'
-                                if 3 >= utoch > 2:
-                                    fg = 3
-                                    utochpart = f'Партия макс. вер.: 3 ({utoch})\n'
-                                if 4 >= utoch > 3:
-                                    fg = 4
-                                    utochpart = f'Партия макс. вер.: 4 ({utoch})\n'
-                                if 5 >= utoch > 4:
-                                    fg = 5
-                                    utochpart = f'Партия макс. вер.: 5 ({utoch})\n'
-                                start = ver / korrver * (prohod / 100) * part * itog
-                                fstart = f'Стартуем с {start} партии\n'
-                                uver = start * part * fg
-                                fuver = f'Стабильность: {uver}'
-                                mess1 = mess + invprov + utochpart + fstart + fuver
-                                send_channel(mess1)
-                        
+                                send_channel(mess2)
                         else:
-                            part = deli * itog
-                            fpart = f'Уточнение партии: {part}\n'
-                            fstavkainv = ''
-                            # if korrver < 10 and prorazb < 5:
-                            #     finv = f'\U0000267B Инверсия ставки \n'
-                            if fstavka == 'ТМ 18.5\n':
-                                fstavkainv = f'Инв. ставка : ТБ 18.5\n'
-                            if fstavka == 'ТБ 18.5\n':
-                                fstavkainv = f'Инв. ставка : ТМ 18.5\n'
-                            #     med = f'\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\U0001F949\n'
-                            messchannelinv = mess + fpart + fstavkainv
-                            invprov = f'Инвертировано ранее\n'
-                            if utoch <= 1 or utoch > 5:
-                                fg = 1
-                                utochpart = f'Партия макс. вер.: 1 ({utoch})\n'
-                            if 2 >= utoch > 1:
-                                fg = 2
-                                utochpart = f'Партия макс. вер.: 2 ({utoch})\n'
-                            if 3 >= utoch > 2:
-                                fg = 3
-                                utochpart = f'Партия макс. вер.: 3 ({utoch})\n'
-                            if 4 >= utoch > 3:
-                                fg = 4
-                                utochpart = f'Партия макс. вер.: 4 ({utoch})\n'
-                            if 5 >= utoch > 4:
-                                fg = 5
-                                utochpart = f'Партия макс. вер.: 5 ({utoch})\n'
-                            start = ver / korrver *(prohod / 100) * part * itog
-                            fstart = f'Стартуем с {start} партии\n'
-                            uver = start * part * fg
-                            fuver = f'Стабильность: {uver}'
-                            mess2 = messchannelinv + invprov + utochpart + fstart + fuver
-                            
-                            send_channel(mess2)
+                            pass
                         
                                 
                     except:
