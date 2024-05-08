@@ -174,7 +174,7 @@ def main():
                                 line = item.strip()
                                     # print(line)
                                 idid = line.split('-')[0]
-                                if id_ev in idid:
+                                if id_ev == idid:
                                     print('Событие уже отправлено')
                                 else:
                                     fdate = f'\U0001F4C6 {date_ev_str} \n'
