@@ -148,7 +148,7 @@ def main():
                 if razb < 5:
                     pass
                 else:
-                    try:
+                    
                         itog1 = pr / razb
                         print('Партии на игры на разбежку',itog1)
                         itog = itog1 * deli
@@ -418,8 +418,7 @@ def main():
                             pass
                         
                                 
-                    except:
-                        pass
+                    
                     
                 
     send_telegram('Поиск завершен')
