@@ -178,6 +178,7 @@ def main():
                     id_ev = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['id_ev']
                     if str(id_ev) in list:
                         print('Событие уже отправлено')
+                        send_telegram('Событие {id_ev} уже отправлено')
                     else:    
                         fid_ev = f'Идентификатор: {id_ev}\n'
                         
