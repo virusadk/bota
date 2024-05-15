@@ -318,7 +318,7 @@ def main():
                         fstart = f'Стартуем с {start} партии\n'
                         uver = start * part * fg
                         fuver = f'Стабильность: {uver}'
-                        final = ver / prphod * itog /deli
+                        final = ver / prohod * itog / deli
                         ffinal =f'Точность:{final}'
                         mess = mess + invprov + utochpart + fstart + fuver + ffinal
                         send_telegram(mess)                       
@@ -357,7 +357,7 @@ def main():
                                     fstart = f'Стартуем с {start} партии\n'
                                     uver = start * part * fg
                                     fuver = f'Стабильность: {uver}'
-                                    final = ver / prphod * itog /deli
+                                    final = ver / prohod * itog / deli
                                     ffinal =f'Точность:{final}'
                                     messchannelinv = mess + fpart + fstavkainv + invprov + utochpart + fstart + fuver + ffinal
                                     with open('send.txt','a') as file:
@@ -389,7 +389,7 @@ def main():
                                     fstart = f'Стартуем с {start} партии\n'
                                     uver = start * part * fg
                                     fuver = f'Стабильность: {uver}'
-                                    final = ver / prphod * itog /deli
+                                    final = ver / prohod * itog / deli
                                     ffinal =f'Точность:{final}'
                                     mess1 = mess + invprov + utochpart + fstart + fuver + ffinal
                                     with open('send.txt','a') as file:
@@ -431,7 +431,7 @@ def main():
                                 fstart = f'Стартуем с {start} партии\n'
                                 uver = start * part * fg
                                 fuver = f'Стабильность: {uver}'
-                                final = ver / prphod * itog /deli
+                                final = ver / prohod * itog / deli
                                 ffinal =f'Точность:{final}'
                                 mess2 = messchannelinv + invprov + utochpart + fstart + fuver + ffinal
                                 with open('send.txt','a') as file:
