@@ -318,7 +318,9 @@ def main():
                         fstart = f'Стартуем с {start} партии\n'
                         uver = start * part * fg
                         fuver = f'Стабильность: {uver}'
-                        mess = mess + invprov + utochpart + fstart + fuver
+                        final = ver / prphod * itog /deli
+                        ffinal =f'Точность:{final}'
+                        mess = mess + invprov + utochpart + fstart + fuver + ffinal
                         send_telegram(mess)                       
                         # bot.send_message(message.chat.id, text=mess)
                         if ver > 60:
@@ -355,7 +357,9 @@ def main():
                                     fstart = f'Стартуем с {start} партии\n'
                                     uver = start * part * fg
                                     fuver = f'Стабильность: {uver}'
-                                    messchannelinv = mess + fpart + fstavkainv + invprov + utochpart + fstart + fuver
+                                    final = ver / prphod * itog /deli
+                                    ffinal =f'Точность:{final}'
+                                    messchannelinv = mess + fpart + fstavkainv + invprov + utochpart + fstart + fuver + ffinal
                                     with open('send.txt','a') as file:
                                         file.write(f'\n{id_ev}')            
                                         file.close()
@@ -385,7 +389,9 @@ def main():
                                     fstart = f'Стартуем с {start} партии\n'
                                     uver = start * part * fg
                                     fuver = f'Стабильность: {uver}'
-                                    mess1 = mess + invprov + utochpart + fstart + fuver
+                                    final = ver / prphod * itog /deli
+                                    ffinal =f'Точность:{final}'
+                                    mess1 = mess + invprov + utochpart + fstart + fuver + ffinal
                                     with open('send.txt','a') as file:
                                         file.write(f'\n{id_ev}')            
                                         file.close()
@@ -425,7 +431,9 @@ def main():
                                 fstart = f'Стартуем с {start} партии\n'
                                 uver = start * part * fg
                                 fuver = f'Стабильность: {uver}'
-                                mess2 = messchannelinv + invprov + utochpart + fstart + fuver
+                                final = ver / prphod * itog /deli
+                                ffinal =f'Точность:{final}'
+                                mess2 = messchannelinv + invprov + utochpart + fstart + fuver + ffinal
                                 with open('send.txt','a') as file:
                                         file.write(f'\n{id_ev}')            
                                         file.close()
